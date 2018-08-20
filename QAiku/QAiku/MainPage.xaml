@@ -3,29 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:QAiku"
              x:Class="QAiku.MainPage">
-    <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
 
-    <Grid >
+    <Grid BackgroundColor="DodgerBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
 
         </Grid.RowDefinitions>
         <StackLayout Grid.Row="0">
-            <!-- Place new controls here -->
-            <Label Text="QAiku" FontSize="50" 
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="Type your message...">
+            <Label Text="QAiku" FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
-            </Entry>
-            <Button x:Name="SendMessageButton" 
-                    Text="Submit" 
-                    Clicked="SendMessageButton_Clicked">
-            </Button>
+            <Entry x:Name="MessageBox" Placeholder="Type your message..." BindingContext="{Binding Msg}" />
+
+            <Button x:Name="SendMessageButton" Text="Send" Clicked="SendMessageButton_Clicked" />
+
+            <Entry Placeholder="..." x:Name="CopiedText" />
+
         </StackLayout>
-        </Grid>
+    </Grid>
 </ContentPage>
