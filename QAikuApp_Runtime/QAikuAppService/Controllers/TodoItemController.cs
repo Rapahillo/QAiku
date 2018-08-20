@@ -9,37 +9,37 @@ using QAikuAppService.Models;
 
 namespace QAikuAppService.Controllers
 {
-    public class TodoItemController : TableController<TodoItem>
+    public class TodoItemController : TableController<Recipients>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             QAikuAppContext context = new QAikuAppContext();
-            DomainManager = new EntityDomainManager<TodoItem>(context, Request);
+            DomainManager = new EntityDomainManager<Recipients>(context, Request);
         }
 
         // GET tables/TodoItem
-        public IQueryable<TodoItem> GetAllTodoItems()
+        public IQueryable<Recipients> GetAllTodoItems()
         {
             return Query();
         }
 
         // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<TodoItem> GetTodoItem(string id)
+        public SingleResult<Recipients> GetTodoItem(string id)
         {
             return Lookup(id);
         }
 
         // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
+        public Task<Recipients> PatchTodoItem(string id, Delta<Recipients> patch)
         {
             return UpdateAsync(id, patch);
         }
 
         // POST tables/TodoItem
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        public async Task<IHttpActionResult> PostTodoItem(Recipients item)
         {
-            TodoItem current = await InsertAsync(item);
+            Recipients current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 

@@ -53,15 +53,15 @@ namespace QAikuAppService
     {
         protected override void Seed(QAikuAppContext context)
         {
-            List<TodoItem> todoItems = new List<TodoItem>
+            List<Recipients> todoItems = new List<Recipients>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+                new Recipients { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
+                new Recipients { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
             };
 
-            foreach (TodoItem todoItem in todoItems)
+            foreach (Recipients todoItem in todoItems)
             {
-                context.Set<TodoItem>().Add(todoItem);
+                context.Set<Recipients>().Add(todoItem);
             }
 
             base.Seed(context);
