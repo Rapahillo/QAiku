@@ -13,5 +13,10 @@ namespace QAiku
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void SendMessageButton_Clicked()
+        {
+
+        }
+    }
 }
