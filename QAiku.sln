@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAiku.Android", "QAiku\QAik
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QAiku", "QAiku\QAiku\QAiku.shproj", "{0B18E4FD-522F-4A8F-A650-05BC511044E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QAikuAppService", "..\QAikuAppService\QAikuAppService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		QAiku\QAiku\QAiku.projitems*{0b18e4fd-522f-4a8f-a650-05bc511044e1}*SharedItemsImports = 13
@@ -23,6 +25,10 @@ Global
 		{78F79F4C-411E-4281-A8F7-3AAE201B4409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F79F4C-411E-4281-A8F7-3AAE201B4409}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78F79F4C-411E-4281-A8F7-3AAE201B4409}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
