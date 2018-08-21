@@ -26,12 +26,11 @@ namespace QAiku
                 //var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent( msg, Encoding.UTF8 ,"application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
-
+                 
             }
             catch (Exception)
             {
 
-                throw;
             }
         }
 

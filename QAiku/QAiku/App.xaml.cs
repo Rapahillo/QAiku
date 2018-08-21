@@ -11,8 +11,9 @@ namespace QAiku
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            //MainPage = new MainPage();
+            MainPage = new LoginPage();
+        }
 
 		protected override void OnStart ()
 		{
