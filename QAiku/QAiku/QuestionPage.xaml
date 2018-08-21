@@ -11,7 +11,7 @@
             <Entry x:Name="QuestionEntry" Placeholder="Question" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}" />
             <Entry x:Name="DescriptionEntry" Placeholder="Description" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
-            <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#8c011d"/>
+            <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#8c011d" Clicked="SendQuestionButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
