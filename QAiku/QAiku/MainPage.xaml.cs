@@ -9,30 +9,48 @@ using Newtonsoft.Json;
 
 namespace QAiku
 {
-	public partial class MainPage : ContentPage
-	{
-		public MainPage()
-		{
-			InitializeComponent();
-		}
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
         HttpClient httpClient = new HttpClient();
 
-        public async void PostMessage(Msg msg)
+        public async void PostMessage(string msg)
         {
-            string Url = "www.junakulkee.com";
-            var content = JsonConvert.SerializeObject(msg);
-            var response = await httpClient.PostAsync(Url, new StringContent(content));
-            //return await response.Content.ReadAsStringAsync();
+            try
+            {
+                string Url = "http://qaiku.azurewebsites.net/api/messages/post";
+                //var content = JsonConvert.SerializeObject(msg);
+                var response = await httpClient.PostAsync(Url, new StringContent( msg, Encoding.UTF8 ,"application/json"));
+                Console.WriteLine(response.Content.ReadAsStringAsync());
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void SendMessageButton_Clicked(object sender, EventArgs e)
         {
             Msg msg = new Msg();
-            msg.Message = MessageBox.Text;
-            CopiedText.Text = msg.Message;
+            msg.Subject = MessageBox.Text;
+            msg.Description = "TESTI KUVAUUUUS";
+            msg.SenderId = "123FakeMail@FakeSpam.com";
+            msg.RecipientsIdCsv = "Eka@SpamFake.com;Toka@SpamFake.com;23498321MailFakeKolmas@SpamFake.com";
+            msg.SendDate = DateTime.Now;
+            msg.Category = 1;
+            msg.Favorite = false;
 
-            //PostMessage(msg);
+            CopiedText.Text = msg.Subject;
+
+
+
+            PostMessage(JsonConvert.SerializeObject( msg));
         }
     }
 }
