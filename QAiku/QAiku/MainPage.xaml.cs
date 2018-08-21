@@ -38,7 +38,7 @@ namespace QAiku
         {
             Msg msg = new Msg();
             msg.Subject = MessageBox.Text;
-            msg.Description = "TESTI KUVAUUUUS";
+            msg.Description = "";
             msg.SenderId = "123FakeMail@FakeSpam.com";
             msg.RecipientsIdCsv = "Eka@SpamFake.com;Toka@SpamFake.com;23498321MailFakeKolmas@SpamFake.com";
             msg.SendDate = DateTime.Now;

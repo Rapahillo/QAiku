@@ -17,9 +17,16 @@ namespace QAiku
 			InitializeComponent ();
 		}
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+            var nextPage = new NavigationPage(new MainPage());
+            await this.Navigation.PushAsync(nextPage);
+        }
 
+        private async void RegisterNewUserButton_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new NavigationPage(new SignupPage());
+            await this.Navigation.PushAsync(nextPage);
         }
     }
 }
