@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:QAiku"
              x:Class="QAiku.MainPage">
 
-    <Grid BackgroundColor="DodgerBlue">
+    <Grid BackgroundColor="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
