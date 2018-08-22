@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -21,22 +22,41 @@ namespace QAiku
 
         private async void SendQuestionButton_Clicked(object sender, EventArgs e)
         {
-            var msg = "jepujee";
+            Msg msg = new Msg();
+            msg.Subject = QuestionEntry.Text;
+            msg.Description = DescriptionEntry.Text;
+            msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";
+            msg.RecipientsIdCsv = ChooseRecipient.Text;
+            msg.SendDate = DateTime.Now;
+            msg.Category = 1;
+            msg.Favorite = true;
+            msg.State = 1;
+            
 
             
 
             try
             {
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
-                //var content = JsonConvert.SerializeObject(msg);
-                var response = await httpClient.PostAsync(Url, new StringContent(msg, Encoding.UTF8, "application/json"));
+                var content = JsonConvert.SerializeObject(msg);
+                var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
+                await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
+                QuestionEntry.Text = "";
+                QuestionEntry.Placeholder = "Question";
+                DescriptionEntry.Text = "";
+                DescriptionEntry.Placeholder = "Description";
+                ChooseRecipient.Text = "";
+                ChooseRecipient.Placeholder = "Recipient";
+                
 
             }
             catch (Exception)
             {
-
+                await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
             }
         }
+
+       
     }
 }
