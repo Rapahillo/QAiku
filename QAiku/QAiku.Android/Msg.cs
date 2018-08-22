@@ -43,6 +43,10 @@ namespace QAiku
         ///  For answers, use Response(0); For questions, choose Unanswered(1), Partial(2), or Answered(3).
         /// </summary>
         public int State { get; set; }
+        /// <summary>
+        /// Specifies the thread that the message belongs to
+        /// </summary>
+        public string  ThreadId { get; set; }
     }
     /// <summary>
     /// Message categories: 1=Question, 2=Answer
