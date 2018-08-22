@@ -14,7 +14,7 @@
             <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="Welcome to QAiku"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
-            <Entry Placeholder="User Name" TextColor="White" PlaceholderColor="White" />
+            <Entry x:Name="UsernameLoginEntry" Placeholder="Username" TextColor="White" PlaceholderColor="White" BindingContext="{Binding User}"/>
             <Entry Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
             <Button x:Name="LoginButton" Text="Login" TextColor="White" BackgroundColor="#8c011d" Clicked="LoginButton_Clicked"/>
             <Button x:Name="RegisterNewUserButton" FontSize="12" TextColor="White" Text="Not a member? Sign up now" VerticalOptions="Center"
