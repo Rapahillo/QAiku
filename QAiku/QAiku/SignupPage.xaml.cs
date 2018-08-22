@@ -34,9 +34,8 @@ namespace QAiku
 
         private async void ReturnToLoginButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
-            
-            //await this.Navigation.PopToRootAsync();
+            await this.Navigation.PopAsync();
         }
+
     }
 }

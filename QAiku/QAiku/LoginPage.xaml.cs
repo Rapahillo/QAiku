@@ -9,13 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace QAiku
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
-	{
-		public LoginPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
+    {
+        public LoginPage()
+        {
+            InitializeComponent();
+        }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
@@ -27,6 +27,8 @@ namespace QAiku
         {
             var nextPage = new NavigationPage(new SignupPage());
             await this.Navigation.PushAsync(nextPage);
+
+
         }
     }
 }
