@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QAiku.UserProfilePage"
+             BackgroundColor="#202020">
+   
+        <StackLayout
+            Padding="20"
+            Spacing="20">
+        <Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>
+        <Image Source="loginLogo.png" HorizontalOptions="Start"/>
+        <Label FontSize="15" TextColor="White" Text="Name" VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label HorizontalTextAlignment="Center" Text="Email" Grid.Row="0" Grid.Column="0" />
+            <Label HorizontalTextAlignment="Center" Text="Phone number" Grid.Row="0" Grid.Column="1" />
+            <Label HorizontalTextAlignment="Center" Text="Top Right" Grid.Row="0" Grid.Column="2" />
+            <Label HorizontalTextAlignment="Center" Text="Bottom Left" Grid.Row="1" Grid.Column="0" />
+            <Label HorizontalTextAlignment="Center" Text="Bottom Center" Grid.Row="1" Grid.Column="1" />
+            <Label HorizontalTextAlignment="Center" Text="Bottom Right" Grid.Row="1" Grid.Column="2" />
+        </Grid>
+    </StackLayout>
+    
+</ContentPage>

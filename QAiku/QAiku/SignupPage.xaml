@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QAiku.SignupPage"
+             BackgroundColor="#202020">
+    
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="20"
+            Padding="20"
+            VerticalOptions="Center" >
+            <Image Source="loginLogo.png" />
+            <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="Register to QAiku"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+            <!--<Entry Placeholder="User Name" TextColor="White" PlaceholderColor="White" />-->
+            <Entry Placeholder="Email" Keyboard="Email" TextColor="White" PlaceholderColor="White"/>
+            <Entry Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
+            <Entry Placeholder="Re-Enter Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
+            <Button x:Name="SignUpButton" Text="Sign Up" TextColor="White" BackgroundColor="#8c011d" Clicked="SignUpButton_Clicked"/>
+            <Button x:Name="facebookLoginButton" Text="Facebook Login" BackgroundColor="#3B5998" Clicked="facebookLoginButton_Clicked"/>
+            <Button x:Name="googleLoginButton" Text="LinkedIn Login" BackgroundColor="#0077B5" Clicked="googleLoginButton_Clicked"/>
+            <Label FontSize="15" TextColor="White" Text="Already signed up? Sign in." VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
