@@ -17,8 +17,8 @@
             <Entry Placeholder="User Name" TextColor="White" PlaceholderColor="White" />
             <Entry Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
             <Button x:Name="LoginButton" Text="Login" TextColor="White" BackgroundColor="#8c011d" Clicked="LoginButton_Clicked"/>
-            <Button x:Name="RegisterNewUserButton" FontSize="12" TextColor="White" Text="Not a member? Sign up now" VerticalOptions="Center"
-            HorizontalOptions="Center" BorderWidth="5" Clicked="RegisterNewUserButton_Clicked"/>
+            <Button x:Name="RegisterNewUserButton" BackgroundColor="Transparent" FontSize="12" TextColor="White" Text="Not a member? Sign up now" VerticalOptions="Center"
+            HorizontalOptions="Center" Clicked="RegisterNewUserButton_Clicked"/>
 
         </StackLayout>
     </ContentPage.Content>
