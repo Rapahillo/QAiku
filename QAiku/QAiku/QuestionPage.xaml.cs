@@ -20,6 +20,9 @@ namespace QAiku
         }
         HttpClient httpClient = new HttpClient();
 
+        /// <summary>
+        /// Sends user question to database
+        /// </summary>
         private async void SendQuestionButton_Clicked(object sender, EventArgs e)
         {
             Msg msg = new Msg();
@@ -31,10 +34,6 @@ namespace QAiku
             msg.Category = 1;
             msg.Favorite = true;
             msg.State = 1;
-            
-
-            
-
             try
             {
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
@@ -48,8 +47,6 @@ namespace QAiku
                 DescriptionEntry.Placeholder = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
-                
-
             }
             catch (Exception)
             {
