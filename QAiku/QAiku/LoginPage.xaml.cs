@@ -15,12 +15,13 @@ namespace QAiku
     {
         public LoginPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            bool authentication = false;
+            bool authentication = true;
             User user = new User();
             user.UserId = UsernameLoginEntry.Text;
 
@@ -30,7 +31,7 @@ namespace QAiku
             if (authentication == true)
             {
                 var nextPage = new NavigationPage(new MainPage());
-                await this.Navigation.PushAsync(nextPage);
+                await this.Navigation.PushModalAsync(nextPage);
             }
             
         }

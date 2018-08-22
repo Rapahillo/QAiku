@@ -14,7 +14,9 @@ namespace QAiku
 	{
 		public SignupPage ()
 		{
-			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
+
+            InitializeComponent();
 		}
 
         private void SignUpButton_Clicked(object sender, EventArgs e)

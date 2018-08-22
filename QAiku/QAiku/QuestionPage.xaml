@@ -10,7 +10,7 @@
             Spacing="20"
             Padding="20">
             <!--VerticalOptions="Center" >-->
-            <Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>
+            <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
             <Entry x:Name="QuestionEntry" Placeholder="Question" TextColor="White" PlaceholderColor="White" MaxLength="140" BindingContext="{Binding Msg}" />
             <Entry x:Name="DescriptionEntry" Placeholder="Description" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
