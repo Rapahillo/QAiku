@@ -14,7 +14,9 @@ namespace QAiku
 	{
 		public UserProfilePage ()
 		{
-			InitializeComponent ();
+            //NavigationPage.SetHasNavigationBar(this, false);
+
+            InitializeComponent();
 		}
 	}
 }
