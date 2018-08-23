@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Android.Util;
+using System.Linq;
 
 namespace QAiku.ViewModel
 {
@@ -61,12 +62,11 @@ namespace QAiku.ViewModel
 
         private async Task Initialize()
         {
-            Log.Info("LOQPM", "LOQPM Initialize-metodi käynnistyi");
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetAllMessagesAsync(); //Once we have user data, replace this with messages sent and received by the user
-
-            _messages = Extensions.ToObservableCollection<MsgModel>(msgs);
+            msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
 
 
         }

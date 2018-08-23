@@ -15,7 +15,7 @@ using Xamarin.Forms;
 
 namespace QAiku.Droid
 {
-    public static class Extensions
+    public static class QaikuExtensions
     {
         /// <summary>
         /// Turns an IEnumerable collection into an ObservableCollection in the same type

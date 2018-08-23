@@ -12,7 +12,7 @@
             <!--VerticalOptions="Center" >-->
             <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
             
-            <Editor x:Name="Question" Text="Question" TextColor="White" MaxLength="140" BindingContext="{Binding Msg}"/>
+            <Editor x:Name="Question" Text="Question" TextColor="White" MaxLength="140" BindingContext="{Binding Msg}" />
             <Editor x:Name="Description" Text="Description" TextColor="White" BindingContext="{Binding Msg}" />
             
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>

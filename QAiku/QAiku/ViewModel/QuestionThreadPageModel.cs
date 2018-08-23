@@ -64,7 +64,7 @@ namespace QAiku.ViewModel
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetAllMessagesAsync();
 
-            _messages = Extensions.ToObservableCollection<MsgModel>(msgs);
+            _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
             Log.Info("QTPM", $"Initialize valmistui, tuloksena {msgs[0].Subject} viesti");
 
 
