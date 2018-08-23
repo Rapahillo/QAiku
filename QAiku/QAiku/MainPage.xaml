@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:QAiku"
              x:Class="QAiku.MainPage"
              BackgroundColor="#202020">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings"
+                     Icon="settings_icon.png"
+                     Priority="0"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
