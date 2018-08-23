@@ -24,8 +24,8 @@ namespace QAiku
 
         protected async override void OnAppearing()
         {
-            List<Msg> Messages = await GetAllMessagesAsync();
             base.OnAppearing();
+            List<Msg> Messages = await GetAllMessagesAsync();
         }
         private async Task<List<Msg>> GetAllMessagesAsync()
         {
