@@ -29,7 +29,7 @@ namespace QAiku
         {
             MsgModel msg = new MsgModel();
             msg.Subject = Question.Text;
-            msg.Description = Desprition.Text;
+            msg.Description = Description.Text;
             msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";
             msg.RecipientsIdCsv = ChooseRecipient.Text;
             msg.SendDate = DateTime.Now;
@@ -44,7 +44,7 @@ namespace QAiku
                 Console.WriteLine(response.Content.ReadAsStringAsync());
                 await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
                 Question.Text = "Question";
-                Desprition.Text = "Description";
+                Description.Text = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
             }
