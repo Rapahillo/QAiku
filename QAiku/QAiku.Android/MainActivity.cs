@@ -6,17 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Xamarin_GoogleAuth.Authentication;
 
 namespace QAiku.Droid
 {
     [Activity(Label = "QAiku", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IGoogleAuthenticationDelegate
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-
-        //
-        public static GoogleAuthenticator Auth;
-        //
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,7 +19,7 @@ namespace QAiku.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App()); 
         }
