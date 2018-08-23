@@ -7,17 +7,22 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin_GoogleAuth.Authentication;
 
 namespace QAiku
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginPage : ContentPage, IGoogleAuthenticationDelegate
     {
         public LoginPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
+            //---------------------------------------------
+            MainActivity.Auth = new GoogleAuthenticator(Configuration.ClientId, Configuration.Scope, Configuration.RedirectUrl, this);
+
+            //---------------------------------------------
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
