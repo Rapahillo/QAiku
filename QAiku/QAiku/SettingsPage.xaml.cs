@@ -16,5 +16,35 @@ namespace QAiku
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void EditProfileButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangePasswordButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MessageHistoryButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GiveFeedbackButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SignOutButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TermsOfServiceButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

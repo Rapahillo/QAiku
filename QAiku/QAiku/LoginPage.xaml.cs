@@ -32,7 +32,7 @@ namespace QAiku
 
             if (authentication == true)
             {
-                var nextPage = new NavigationPage(new MainPage());
+                var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
                 await this.Navigation.PushModalAsync(nextPage);
