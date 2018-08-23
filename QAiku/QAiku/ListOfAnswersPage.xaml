@@ -4,10 +4,45 @@
              x:Class="QAiku.ListOfAnswersPage"
              BackgroundColor="#202020">
 
+    <StackLayout>
 
-    <ListView>
+        <Image Source="loginLogo.png" />
+        <Button x:Name="Settings" Text="Settings" Margin="10, 0, 10, 0" HorizontalOptions="End"/>
+        <Button x:Name="BackButton" Text="Back" Margin="10, -55, 15, 0" HorizontalOptions="Start"/>
 
-       
-    </ListView>
 
+        <StackLayout>
+
+            <Entry Grid.Column="1" Placeholder="Search..." Margin="15, 0"/>
+            
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="99"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="SearchButton" Text="Search" Margin="10, 0, 0, 5" BackgroundColor="Blue"/>
+                
+            </Grid>-->
+        </StackLayout>
+
+        <ListView x:Name="AnswerList" RowHeight="100" GroupDisplayBinding="{Binding Subject}"
+        GroupShortNameBinding="{Binding Subject}"
+        IsGroupingEnabled="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Subject}"
+                     Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
 </ContentPage>

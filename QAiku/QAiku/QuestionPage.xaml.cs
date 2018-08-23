@@ -16,7 +16,8 @@ namespace QAiku
     {
         public QuestionPage ()
         {
-            InitializeComponent ();
+            //NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
         }
         HttpClient httpClient = new HttpClient();
 

@@ -21,8 +21,8 @@
             <Button x:Name="SignUpButton" Text="Sign Up" TextColor="White" BackgroundColor="#8c011d" Clicked="SignUpButton_Clicked"/>
             <Button x:Name="facebookLoginButton" Text="Facebook Login" BackgroundColor="#3B5998" Clicked="facebookLoginButton_Clicked"/>
             <Button x:Name="googleLoginButton" Text="LinkedIn Login" BackgroundColor="#0077B5" Clicked="googleLoginButton_Clicked"/>
-            <Button x:Name="ReturnToLoginButton" FontSize="12" TextColor="White" Text="Already signed up? Sign in." VerticalOptions="Center"
-                HorizontalOptions="Center" BorderWidth="5" Clicked="ReturnToLoginButton_Clicked"/>
+            <Button x:Name="ReturnToLoginButton" BackgroundColor="Transparent" FontSize="12" TextColor="White" Text="Already signed up? Sign in." VerticalOptions="Center"
+                HorizontalOptions="Center" Clicked="ReturnToLoginButton_Clicked"/>
 
 
         </StackLayout>
