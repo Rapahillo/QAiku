@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace QAiku
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UserProfilePage : ContentPage
+	public partial class SettingsPage : ContentPage
 	{
-		public UserProfilePage ()
+		public SettingsPage ()
 		{
-            //NavigationPage.SetHasNavigationBar(this, false);
-
-            InitializeComponent();
+			InitializeComponent ();
 		}
 	}
 }
