@@ -2,11 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.QuestionThreadPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout Padding="25">
+
+        <Label TextColor="Orange" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
+        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+            <Label.Text>
+                Name
+            </Label.Text>
+        </Label>
+        <Label TextColor="Orange" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
+        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+            <Label.Text>
+                Topic
+            </Label.Text>
+        </Label>
+        <Label TextColor="Orange" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
+        <Label TextColor="White" WidthRequest="100" Margin="15, -7" FontSize="16">
+            <Label.Text>
+                Text
+            </Label.Text>
+        </Label>
+
+        <ListView x:Name="AnswerList" RowHeight="100" GroupDisplayBinding="{Binding TÄHÄNJOTAIN}"
+        GroupShortNameBinding="{Binding TÄHÄNJOTAIN}"
+        IsGroupingEnabled="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding TÄHÄNJOTAIN}"
+                     Detail="{Binding TÄHÄNJOTAIN}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="Red" />
+        
+    </StackLayout>
+    
+    
 </ContentPage>
