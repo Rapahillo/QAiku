@@ -15,12 +15,15 @@ namespace QAiku
     {
         public LoginPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
+        
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            bool authentication = false;
+            bool authentication = true;
             User user = new User();
             user.UserId = UsernameLoginEntry.Text;
 
@@ -32,7 +35,7 @@ namespace QAiku
                 var nextPage = new NavigationPage(new MainPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
-                await this.Navigation.PushAsync(nextPage);
+                await this.Navigation.PushModalAsync(nextPage);
             }
             
         }
@@ -40,7 +43,7 @@ namespace QAiku
         private async void RegisterNewUserButton_Clicked(object sender, EventArgs e)
         {
             var nextPage = new NavigationPage(new SignupPage());
-            await this.Navigation.PushAsync(nextPage);
+            await this.Navigation.PushModalAsync(nextPage);
         }
     }
 }
