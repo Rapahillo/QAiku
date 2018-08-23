@@ -15,18 +15,15 @@ namespace QAiku
     {
         public LoginPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
-        
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            bool authentication = true;
-            User user = new User();
+            bool authentication = false;
+            UserModel user = new UserModel();
             user.UserId = UsernameLoginEntry.Text;
-
+            authentication = true; //This is a development stage solution, don't keep!!
             // Here goes AAD authentication
 
 
@@ -35,7 +32,7 @@ namespace QAiku
                 var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
-                await this.Navigation.PushModalAsync(nextPage);
+                await this.Navigation.PushAsync(nextPage);
             }
             
         }
@@ -43,7 +40,7 @@ namespace QAiku
         private async void RegisterNewUserButton_Clicked(object sender, EventArgs e)
         {
             var nextPage = new NavigationPage(new SignupPage());
-            await this.Navigation.PushModalAsync(nextPage);
+            await this.Navigation.PushAsync(nextPage);
         }
     }
 }
