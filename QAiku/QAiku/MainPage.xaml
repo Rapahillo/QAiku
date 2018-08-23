@@ -17,7 +17,6 @@
             <Button x:Name="SendMessageButton" Text="Send" Clicked="SendMessageButton_Clicked" />
 
             <Entry Placeholder="..." x:Name="CopiedText" />
-            
 
         </StackLayout>
     </Grid>
