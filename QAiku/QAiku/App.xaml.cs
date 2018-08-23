@@ -22,6 +22,7 @@ namespace QAiku
         protected override void OnStart()
         {
             // Handle when your app starts
+            // If user logged in -> skip login screen and go directly to message listing
         }
 
         protected override void OnSleep()
