@@ -11,8 +11,10 @@
             Padding="20">
             <!--VerticalOptions="Center" >-->
             <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
-            <Entry x:Name="QuestionEntry" Placeholder="Question" TextColor="White" PlaceholderColor="White" MaxLength="140" BindingContext="{Binding Msg}" />
-            <Entry x:Name="DescriptionEntry" Placeholder="Description" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
+            
+            <Editor x:Name="Question" Text="Question" TextColor="White" MaxLength="140" BindingContext="{Binding Msg}"/>
+            <Editor x:Name="Desprition" Text="Description" TextColor="White" BindingContext="{Binding Msg}" />
+            
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="White" PlaceholderColor="White" BindingContext="{Binding Msg}"/>
             <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#8c011d" Clicked="SendQuestionButton_Clicked"/>
         </StackLayout>
