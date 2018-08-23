@@ -13,6 +13,7 @@ namespace QAiku
     {
         public MainPage()
         {
+            
             InitializeComponent();
         }
 
@@ -22,6 +23,11 @@ namespace QAiku
         {
             var nextPage = new QuestionPage();
             Navigation.PushAsync(nextPage);
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
