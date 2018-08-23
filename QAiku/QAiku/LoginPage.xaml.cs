@@ -23,13 +23,13 @@ namespace QAiku
             bool authentication = false;
             UserModel user = new UserModel();
             user.UserId = UsernameLoginEntry.Text;
-
+            authentication = true; //This is a development stage solution, don't keep!!
             // Here goes AAD authentication
 
 
             if (authentication == true)
             {
-                var nextPage = new NavigationPage(new MainPage());
+                var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
                 await this.Navigation.PushAsync(nextPage);

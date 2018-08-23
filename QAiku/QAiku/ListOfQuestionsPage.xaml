@@ -32,10 +32,10 @@
             </Grid>-->
         </StackLayout>
 
-        <ListView x:Name="AnswerList" RowHeight="100" GroupDisplayBinding="{Binding Subject}"
-        GroupShortNameBinding="{Binding Subject}"
-        IsGroupingEnabled="true">
-            <ListView.ItemTemplate ItemsSource="{Binding Messages}">
+          <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}">
+                <!--GroupShortNameBinding="{Binding Subject}"-->
+        <!--IsGroupingEnabled="false">-->
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Subject}"
                      Detail="{Binding Description}" />
@@ -43,7 +43,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 10, 10" HorizontalOptions="End" BackgroundColor="Red" />
+        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 10, 10" HorizontalOptions="End" BackgroundColor="Red" Clicked="NewMessageButton_Clicked" />
 
     </StackLayout>
     

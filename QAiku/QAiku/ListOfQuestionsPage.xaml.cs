@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using QAiku.ViewModel;
+using Android.Util;
 
 namespace QAiku
 {
@@ -14,30 +16,29 @@ namespace QAiku
     {
         public ListOfQuestionsPage ()
         {
-            InitializeComponent ();
-            //BindingContext = new ListOfQuestionsPageModel();
-        }
-        //List<Msg> Messages = null;
+                Log.Info("LOQP", "ListOfQuestionsPagen konstruktori käynnistyi");
+                InitializeComponent ();
+                BindingContext = new ListOfQuestionsPageModel();
+                Log.Info("LOQP", $"ListOfQuestionsPagen konstruktori valmistui");
 
-        protected /*async*/ override void OnAppearing()
+
+
+
+
+            }
+        protected async override void OnAppearing()
         {
-            
-        //KUTSU TÄSSÄ KOHTAA VIEWMODELISTA UPDATE!!!!
+            Log.Info("LOQP", "ListOfQuestionsPagen OnAppearing käynnistyi!");
+            BindingContext = await ListOfQuestionsPageModel.Update();
+            Log.Info("LOQP", "ListOfQuestionsPagen OnAppearing valmistui!");
+            Log.Info("LOQP", BindingContext.ToString());
+
         }
-        //{
-        //    Messages = await GetAllMessagesAsync();
-        //}
-        //private async Task<List<Msg>> GetAllMessagesAsync()
-        //{
-        //    var uri = new Uri(string.Format(RestUrl, "GetAllMessages"));
-        //    var response = await httpClient.GetAsync(uri);
-        //    List<Msg> Messages = null; ;
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var content = await response.Content.ReadAsStringAsync();
-        //        Messages = JsonConvert.DeserializeObject<List<Msg>>(content);
-        //    }
-        //    return Messages;
-        //}
+
+        private void NewMessageButton_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new QuestionPage();
+            Navigation.PushAsync(nextPage);
+        }
     }
 }
