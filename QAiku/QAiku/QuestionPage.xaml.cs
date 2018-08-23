@@ -18,6 +18,7 @@ namespace QAiku
         {
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
         }
         HttpClient httpClient = new HttpClient();
 
@@ -26,7 +27,7 @@ namespace QAiku
         /// </summary>
         private async void SendQuestionButton_Clicked(object sender, EventArgs e)
         {
-            Msg msg = new Msg();
+            MsgModel msg = new MsgModel();
             msg.Subject = QuestionEntry.Text;
             msg.Description = DescriptionEntry.Text;
             msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";

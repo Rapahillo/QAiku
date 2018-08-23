@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QAiku
 {
-    public class Msg
+    public class MsgModel
     {
         /// <summary>
         /// CosmosDB DocumentId, used when calling for a specific document

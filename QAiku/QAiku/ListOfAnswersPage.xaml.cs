@@ -19,8 +19,7 @@ namespace QAiku
             InitializeComponent ();
         }
         List<Msg> Messages = null;
-        HttpClient httpClient = new HttpClient();
-        string RestUrl = "http://qaiku.azurewebsites.net/api/messages/";
+      
 
 
         protected async override void OnAppearing()
@@ -28,18 +27,7 @@ namespace QAiku
             base.OnAppearing();
             Messages = await GetAllMessagesAsync();
         }
-        private async Task<List<Msg>> GetAllMessagesAsync()
-        {
-            var uri = new Uri(string.Format(RestUrl, "GetAllMessages"));
-            var response = await httpClient.GetAsync(uri);
-            List<Msg> Messages = null; ;
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                Messages = JsonConvert.DeserializeObject<List<Msg>>(content);
-            }
-            return Messages;
-        } 
+   
 
     }
 }

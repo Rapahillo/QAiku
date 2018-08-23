@@ -21,7 +21,7 @@ namespace QAiku
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             bool authentication = false;
-            User user = new User();
+            UserModel user = new UserModel();
             user.UserId = UsernameLoginEntry.Text;
 
             // Here goes AAD authentication
