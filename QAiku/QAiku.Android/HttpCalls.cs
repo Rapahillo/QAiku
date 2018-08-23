@@ -11,20 +11,26 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
+using Android.Util;
 
 namespace QAiku.Droid
 {
     public class HttpCalls
     {
         HttpClient httpClient = new HttpClient();
-        string RestUrl = "http://qaiku.azurewebsites.net/api/messages/";
         public async Task<List<MsgModel>> GetAllMessagesAsync()
         {
-            var uri = new Uri(string.Format(RestUrl, "GetAllMessages"));
-            var response = await httpClient.GetAsync(uri);
+        string RestUrl = "http://qaiku.azurewebsites.net/api/messages/GetAllMessages";
+            Log.Info("QTDebug", "GetAllMessages käynnistyi");
+            //var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
+
+            //var uri = new Uri(string.Format(RestUrl, "GetAllMessages"));
+            var response = await httpClient.GetAsync(RestUrl);
             List<MsgModel> Messages = null; ;
             if (response.IsSuccessStatusCode)
             {
+                Log.Info("QTDebug", "GetAllMessages sai matskut mukaan!");
+
                 var content = await response.Content.ReadAsStringAsync();
                 Messages = JsonConvert.DeserializeObject<List<MsgModel>>(content);
             }

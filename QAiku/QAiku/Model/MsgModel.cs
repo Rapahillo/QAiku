@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace QAiku
 {
-    public class MsgModel
+    public class MsgModel:BindableObject
     {
         /// <summary>
         /// CosmosDB DocumentId, used when calling for a specific document

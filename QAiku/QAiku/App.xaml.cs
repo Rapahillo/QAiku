@@ -16,7 +16,8 @@ namespace QAiku
             NavigationPage.SetHasNavigationBar(this, false);
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new QuestionThreadPage());
 
         }
         protected override void OnStart()
