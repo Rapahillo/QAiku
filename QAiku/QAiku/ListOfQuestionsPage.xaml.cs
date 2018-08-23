@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace QAiku
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListOfAnswersPage : ContentPage
+	public partial class ListOfQuestionsPage : ContentPage
 	{
-		public ListOfAnswersPage ()
+		public ListOfQuestionsPage ()
 		{
 			InitializeComponent ();
 		}

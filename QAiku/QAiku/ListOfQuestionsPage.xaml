@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QAiku.ListOfAnswersPage"
+             x:Class="QAiku.ListOfQuestionsPage"
              BackgroundColor="#202020">
 
     <StackLayout>
 
         <Image Source="loginLogo.png" />
-        <Button x:Name="Settings" Text="Settings" Margin="10, 0, 10, 0" HorizontalOptions="End"/>
-        <Button x:Name="BackButton" Text="Back" Margin="10, -55, 15, 0" HorizontalOptions="Start"/>
+        <Button x:Name="SettingsButton" Text="Settings" Margin="10, 10, 10, 0" HorizontalOptions="End" BackgroundColor="BlueViolet" />
+        <Button x:Name="BackButton" Text="Back" Margin="15, -55, 25, 8" HorizontalOptions="Start" BackgroundColor="Blue"/>
 
 
         <StackLayout>
@@ -42,6 +42,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 10, 10" HorizontalOptions="End" BackgroundColor="Red" />
 
     </StackLayout>
     
