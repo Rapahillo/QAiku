@@ -27,8 +27,8 @@ namespace QAiku
         private async void SendQuestionButton_Clicked(object sender, EventArgs e)
         {
             Msg msg = new Msg();
-            msg.Subject = QuestionEntry.Text;
-            msg.Description = DescriptionEntry.Text;
+            msg.Subject = Question.Text;
+            msg.Description = Description.Text;
             msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";
             msg.RecipientsIdCsv = ChooseRecipient.Text;
             msg.SendDate = DateTime.Now;
@@ -42,10 +42,10 @@ namespace QAiku
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
                 await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                QuestionEntry.Text = "";
-                QuestionEntry.Placeholder = "Question";
-                DescriptionEntry.Text = "";
-                DescriptionEntry.Placeholder = "Description";
+                Question.Text = "";
+                //Question.Placeholder = "Question";
+                Description.Text = "Description";
+                //Description.Placeholder = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
             }
