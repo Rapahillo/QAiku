@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QAiku.GiveFeedbackPage">
+    
+        <StackLayout Padding="25">
+
+        <Label FontAttributes="Bold" FontSize="30" TextColor="White"  Text="Give Us Feedback"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+        <Editor x:Name="FeedbackField" Text="Feedback..." Margin="13, 60, 10, -25" TextColor="White" />
+
+        <Entry Placeholder="Name" Margin="13, 60, 10, -25" TextColor="White" PlaceholderColor="White"/>
+        <Entry Placeholder="Email" Keyboard="Email" Margin="13, 40, 10, -25" TextColor="White" PlaceholderColor="White"/>
+        <Entry Placeholder="Phone Number" Margin="13, 40, 10, -25" TextColor="White" PlaceholderColor="White"/>
+
+        <Button x:Name="SendFeedbackButton" TextColor="White" Text="Send" BackgroundColor="Red" WidthRequest="180" Margin="25, 80, 20, -25" FontSize="16" HorizontalOptions="Center" Clicked="SendFeedbackButton_Clicked"/>
+
+    </StackLayout>
+    
+</ContentPage>

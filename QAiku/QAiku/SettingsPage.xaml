@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QAiku.SettingsPage">
+             x:Class="QAiku.SettingsPage"
+             BackgroundColor="#202020">
     
         <StackLayout Padding="50">
 
@@ -14,7 +15,7 @@
 
         <Button x:Name="TermsOfServiceButton" TextColor="White" Text="Terms of Service" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="TermsOfServiceButton_Clicked"/>
         <Button x:Name="GiveFeedbackButton" TextColor="White" Text="Give Feedback" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="GiveFeedbackButton_Clicked"/>
-        <Button x:Name="SignOutButton" TextColor="White" Text="Sign Out" BackgroundColor="Red" WidthRequest="270" Margin="30" FontSize="16" HorizontalOptions="Fill" Clicked="SignOutButton_Clicked"/>
+        <Button x:Name="SignOutButton" TextColor="White" Text="Sign Out" BackgroundColor="Red" WidthRequest="180" Margin="30" FontSize="16" HorizontalOptions="Fill" Clicked="SignOutButton_Clicked"/>
         
     </StackLayout>
 
