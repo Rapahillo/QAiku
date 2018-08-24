@@ -31,6 +31,8 @@ namespace QAiku
 
         }
 
+
+
         private void NewMessageButton_Clicked(object sender, EventArgs e)
         {
             var nextPage = new QuestionPage();

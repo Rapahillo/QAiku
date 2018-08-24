@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using QAiku.Droid;
+using QAiku.SharedFunctionalities;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Android.Util;
 using System.Linq;
+using QAiku.Model;
 
 namespace QAiku.ViewModel
 {

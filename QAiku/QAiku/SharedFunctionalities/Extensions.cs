@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
 
-namespace QAiku.Droid
+namespace QAiku.SharedFunctionalities
 {
     public static class QaikuExtensions
     {
