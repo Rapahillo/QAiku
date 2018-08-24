@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace QAiku
+namespace QAiku.Model
 {
     public class MsgModel:BindableObject
     {
