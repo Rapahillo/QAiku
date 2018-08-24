@@ -4,9 +4,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
-using QAiku.Droid;
+using QAiku.SharedFunctionalities;
 using Xamarin.Forms;
 using Android.Util;
+using QAiku.Model;
 
 
 namespace QAiku.ViewModel
