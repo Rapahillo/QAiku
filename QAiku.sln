@@ -9,6 +9,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QAiku", "QAiku\QAiku\QAiku.
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		QAiku\QAiku\QAiku.projitems*{0b18e4fd-522f-4a8f-a650-05bc511044e1}*SharedItemsImports = 13
 		QAiku\QAiku\QAiku.projitems*{78f79f4c-411e-4281-a8f7-3aae201b4409}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
