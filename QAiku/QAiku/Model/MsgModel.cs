@@ -48,6 +48,11 @@ namespace QAiku.Model
         /// Specifies the thread that the message belongs to
         /// </summary>
         public string  ThreadId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{SendDate.ToShortDateString()} {SendDate.ToShortTimeString()} || {Subject} || From {SenderId}";
+        }
     }
     /// <summary>
     /// Message categories: 1=Question, 2=Answer

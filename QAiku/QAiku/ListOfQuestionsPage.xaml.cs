@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using QAiku.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using QAiku.ViewModel;
 using Android.Util;
+using System.Collections.ObjectModel;
 
 namespace QAiku
 {
@@ -17,17 +18,18 @@ namespace QAiku
         public ListOfQuestionsPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            Log.Info("LOQP", "ListOfQuestionsPagen konstruktori käynnistyi");
+            Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
+            
             BindingContext = new ListOfQuestionsPageModel();
-            Log.Info("LOQP", $"ListOfQuestionsPagen konstruktori valmistui");
+           
+            Log.Info("QADEBUG", $"ListOfQuestionsPagen konstruktori valmistui");
         }
         protected async override void OnAppearing()
         {
-            Log.Info("LOQP", "ListOfQuestionsPagen OnAppearing käynnistyi!");
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
             BindingContext = await ListOfQuestionsPageModel.Update();
-            Log.Info("LOQP", "ListOfQuestionsPagen OnAppearing valmistui!");
-            Log.Info("LOQP", BindingContext.ToString());
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }
 

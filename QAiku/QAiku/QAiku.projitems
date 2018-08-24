@@ -27,6 +27,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\MsgModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MsgItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)QuestionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -39,6 +42,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\HttpCalls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignupPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +50,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MsgItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MsgItemView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
