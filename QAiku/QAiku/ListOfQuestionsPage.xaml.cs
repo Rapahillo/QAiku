@@ -14,18 +14,14 @@ namespace QAiku
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListOfQuestionsPage : ContentPage
     {
-        public ListOfQuestionsPage ()
+        public ListOfQuestionsPage()
         {
-                Log.Info("LOQP", "ListOfQuestionsPagen konstruktori käynnistyi");
-                InitializeComponent ();
-                BindingContext = new ListOfQuestionsPageModel();
-                Log.Info("LOQP", $"ListOfQuestionsPagen konstruktori valmistui");
-
-
-
-
-
-            }
+            NavigationPage.SetHasNavigationBar(this, false);
+            Log.Info("LOQP", "ListOfQuestionsPagen konstruktori käynnistyi");
+            InitializeComponent();
+            BindingContext = new ListOfQuestionsPageModel();
+            Log.Info("LOQP", $"ListOfQuestionsPagen konstruktori valmistui");
+        }
         protected async override void OnAppearing()
         {
             Log.Info("LOQP", "ListOfQuestionsPagen OnAppearing käynnistyi!");

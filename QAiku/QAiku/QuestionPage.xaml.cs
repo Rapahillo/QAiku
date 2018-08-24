@@ -16,7 +16,7 @@ namespace QAiku
     {
         public QuestionPage ()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
         }
