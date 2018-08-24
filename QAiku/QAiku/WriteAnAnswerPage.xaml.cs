@@ -10,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace QAiku
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SettingsPage : ContentPage
+	public partial class WriteAnAnswerPage : ContentPage
 	{
-		public SettingsPage ()
+		public WriteAnAnswerPage ()
 		{
 			InitializeComponent ();
 		}
-
-    }
+	}
 }

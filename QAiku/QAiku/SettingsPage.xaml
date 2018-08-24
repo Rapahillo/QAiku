@@ -5,16 +5,16 @@
     
         <StackLayout Padding="50">
 
-        <Button x:FieldModifier="EditProfileButton" TextColor="White" Text="Edit Profile" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="EditProfileButton" />
-        <Button x:FieldModifier="ChangePasswordButton" TextColor="White" Text="Change Password" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="ChangePasswordButton"/>
-        <Button x:Name="MessageHistoryButton" TextColor="White" Text="Message History" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="MessageHistoryButton"/>
+        <Button x:FieldModifier="EditProfileButton" TextColor="White" Text="Edit Profile" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" />
+        <Button x:FieldModifier="ChangePasswordButton" TextColor="White" Text="Change Password" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill"/>
+        <Button x:Name="MessageHistoryButton" TextColor="White" Text="Message History" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill"/>
         <Button TextColor="White" Text="Change Theme" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill"/>
             
         <Switch x:Name="OnOffButton" HorizontalOptions="Center" />
 
-        <Button x:Name="TermsOfServiceButton" TextColor="White" Text="Terms of Service" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="TermsOfServiceButton"/>
-        <Button x:Name="GiveFeedbackButton" TextColor="White" Text="Give Feedback" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="GiveFeedbackButton"/>
-        <Button x:Name="SignOutButton" TextColor="White" Text="Sign Out" BackgroundColor="Red" WidthRequest="270" Margin="30" FontSize="16" HorizontalOptions="Fill" Clicked="SignOutButton"/>
+        <Button x:Name="TermsOfServiceButton" TextColor="White" Text="Terms of Service" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill"/>
+        <Button x:Name="GiveFeedbackButton" TextColor="White" Text="Give Feedback" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill"/>
+        <Button x:Name="SignOutButton" TextColor="White" Text="Sign Out" BackgroundColor="Red" WidthRequest="270" Margin="30" FontSize="16" HorizontalOptions="Fill"/>
         
     </StackLayout>
 
