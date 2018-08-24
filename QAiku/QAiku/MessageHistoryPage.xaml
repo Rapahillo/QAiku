@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QAiku.MessageHistoryPage"
+             BackgroundColor="#202020">
+    
+        <StackLayout Padding="25">
+
+        <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="View Message History"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+        <ListView x:Name="MessageHistoryList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"
+      
+        IsGroupingEnabled="false">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Subject}"
+                     Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>
