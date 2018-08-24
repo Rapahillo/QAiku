@@ -12,8 +12,9 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using Android.Util;
+using QAiku.Model;
 
-namespace QAiku.Droid
+namespace QAiku.SharedFunctionalities
 {
     public class HttpCalls
     {
