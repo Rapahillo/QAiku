@@ -16,8 +16,9 @@ namespace QAiku
     {
         public QuestionPage ()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
         }
         HttpClient httpClient = new HttpClient();
 
@@ -26,7 +27,7 @@ namespace QAiku
         /// </summary>
         private async void SendQuestionButton_Clicked(object sender, EventArgs e)
         {
-            Msg msg = new Msg();
+            MsgModel msg = new MsgModel();
             msg.Subject = Question.Text;
             msg.Description = Description.Text;
             msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";
@@ -42,10 +43,8 @@ namespace QAiku
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
                 await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                Question.Text = "";
-                //Question.Placeholder = "Question";
+                Question.Text = "Question";
                 Description.Text = "Description";
-                //Description.Placeholder = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
             }

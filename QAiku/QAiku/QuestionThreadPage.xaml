@@ -8,7 +8,7 @@
         <Label TextColor="Orange" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
         <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
-                Name
+                Sender name
             </Label.Text>
         </Label>
         <Label TextColor="Orange" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
@@ -24,13 +24,13 @@
             </Label.Text>
         </Label>
 
-        <ListView x:Name="AnswerList" RowHeight="100" GroupDisplayBinding="{Binding TÄHÄNJOTAIN}"
-        GroupShortNameBinding="{Binding TÄHÄNJOTAIN}"
-        IsGroupingEnabled="true">
+        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"
+      
+        IsGroupingEnabled="false">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding TÄHÄNJOTAIN}"
-                     Detail="{Binding TÄHÄNJOTAIN}" />
+                    <TextCell Text="{Binding Subject}"
+                     Detail="{Binding Description}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

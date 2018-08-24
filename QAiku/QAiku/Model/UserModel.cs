@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace QAiku.Droid
 {
-    class User
+    public class UserModel
     {
         public string UserId { get; set; }
         public string FirstName { get; set; }
