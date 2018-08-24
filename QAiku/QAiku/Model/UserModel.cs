@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace QAiku.Droid
+namespace QAiku.Model
 {
     public class UserModel
     {
