@@ -98,6 +98,10 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\settings_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\drawable\KorjattuLogo1.png" />
+    <AndroidResource Include="Resources\drawable\qaiku.png" />
+  </ItemGroup>
   <Import Project="..\QAiku\QAiku.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

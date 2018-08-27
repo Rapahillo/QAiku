@@ -2,24 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.QuestionThreadPage"
-             BackgroundColor="#202020">
+              BackgroundColor="#ebd9c8">
 
     <StackLayout Padding="25">
 
-        <Label TextColor="Orange" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Sender name
             </Label.Text>
         </Label>
-        <Label TextColor="Orange" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Topic
             </Label.Text>
         </Label>
-        <Label TextColor="Orange" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15, -7" FontSize="16">
+        <Label TextColor="#003f5a" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16">
             <Label.Text>
                 Text
             </Label.Text>
@@ -36,7 +36,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="NewQuestionButton" Text="New question" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="Red" />
+        <Button x:Name="NewQuestionButton" Text="New question" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="#007a7a" />
         
     </StackLayout>
     
