@@ -32,6 +32,16 @@ namespace QAiku
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }
+        private void ViewThreadButton_Clicked(object sender, EventArgs e)
+        {
+            Log.Info("QADEBUG", "MessageItemView Viewthreadbutton käynnistyi!");
+            var item = sender as MsgModel;
+            var question = item.BindingContext as MsgModel;
+            Log.Info("QADEBUG", question.ToString());
+            var nextPage = new QuestionThreadPage();
+            Navigation.PushAsync(nextPage);
+            Log.Info("QADEBUG", "MessageItemView Viewthreadbutton valmistui!");
+        }
 
 
 
