@@ -43,19 +43,19 @@ namespace QAiku.ViewModel
 
         public ListOfQuestionsPageModel()
         {
-            Log.Info("LOQPM", "ListOfQuestionsPageModelin konstruktori käynnistyi");
+            Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
-            Log.Info("LOQPM", "ListOfQuestionsPageModelin konstruktori valmistui");
+            Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
 
         }
 
 
         public static async Task<ListOfQuestionsPageModel> Update()
         {
-            Log.Info("LOQPM", "ListOfQuestionsPageModelin update käynnistyi");
+            Log.Info("QADEBUG", "ListOfQuestionsPageModelin update käynnistyi");
             var listOfQuestionsPageModel = new ListOfQuestionsPageModel();
             await listOfQuestionsPageModel.Initialize();
-            Log.Info("LOQPM", "ListOfQuestionsPageModelin update valmistui");
+            Log.Info("QADEBUG", "ListOfQuestionsPageModelin update valmistui");
             return listOfQuestionsPageModel;
 
 
@@ -67,6 +67,8 @@ namespace QAiku.ViewModel
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetAllMessagesAsync(); //Once we have user data, replace this with messages sent and received by the user
             msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
+
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
 
 
