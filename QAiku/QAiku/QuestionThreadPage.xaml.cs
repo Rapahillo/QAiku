@@ -14,11 +14,13 @@ namespace QAiku
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class QuestionThreadPage : ContentPage
 	{
-		public QuestionThreadPage ()
+        private MsgModel _message;
+		public QuestionThreadPage (MsgModel message)
 		{
             Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
 			InitializeComponent ();
-            BindingContext = new QuestionThreadPageModel();
+            _message = message;
+            BindingContext = new QuestionThreadPageModel(message);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
 
 
@@ -29,7 +31,7 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "Question Thread Pagen OnAppearing käynnistyi!");
-            BindingContext = await QuestionThreadPageModel.Update();
+            BindingContext = await QuestionThreadPageModel.Update(_message);
             Log.Info("QADEBUG", "Question Thread Pagen OnAppearing valmistui!");
 
         }

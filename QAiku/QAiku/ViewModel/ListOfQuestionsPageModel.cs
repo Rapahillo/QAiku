@@ -25,7 +25,7 @@ namespace QAiku.ViewModel
                     return;
                 }
                 _messages = value;
-                OnPropertyChanged("Messages");
+                OnPropertyChanged("AnswerList");
             }
         }
 

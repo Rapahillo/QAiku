@@ -67,5 +67,18 @@ namespace QAiku.SharedFunctionalities
             }
             return Messages;
         }
+
+        public async Task<List<MsgModel>> GetThreadAsync(string id)
+        {
+            string resturl = baseurl + "GetByThreadId";
+            var response = await httpClient.GetAsync(resturl);
+            List<MsgModel> Messages = null;
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Messages = JsonConvert.DeserializeObject<List<MsgModel>>(content);
+            }
+            return Messages;
+        }
     }
 }

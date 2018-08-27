@@ -6,37 +6,28 @@
 
     <StackLayout Padding="25">
 
-        <Label TextColor="Orange" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
-            <Label.Text>
-                Sender name
-            </Label.Text>
-        </Label>
-        <Label TextColor="Orange" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
-            <Label.Text>
-                Topic
-            </Label.Text>
-        </Label>
-        <Label TextColor="Orange" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15, -7" FontSize="16">
-            <Label.Text>
-                Text
-            </Label.Text>
-        </Label>
+        <!--<Label TextColor="Orange" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>-->
+        <Label TextColor="White" BindingContext="{Binding Question}" Text="{Binding SenderId}" WidthRequest="100" Margin="15" FontSize="16"/>
 
-        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"
-      
-        IsGroupingEnabled="false">
-            <ListView.ItemTemplate>
+
+        <!--<Label TextColor="Orange" Text="Question" --><!--WidthRequest--><!--="100" Margin="15, 5, 0, -25" FontSize="20"/>-->
+        <Label TextColor="White"  BindingContext="{Binding Question}"  Text="{Binding Subject}" WidthRequest="100" Margin="15" FontSize="16"/>
+
+        <!--<Label TextColor="Orange" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>-->
+        <Label TextColor="White" BindingContext="{Binding Question}"  Text="{Binding Description}" WidthRequest="100" Margin="15, -7" FontSize="16"/>
+
+
+        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTemplate="{StaticResource messageview}">
+
+            <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Subject}"
                      Detail="{Binding Description}" />
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.ItemTemplate>-->
         </ListView>
 
-        <Button x:Name="NewQuestionButton" Text="New question" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="Red" />
+        <Button x:Name="NewAnswerButton" Text="New question" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="Red"/>
         
     </StackLayout>
     

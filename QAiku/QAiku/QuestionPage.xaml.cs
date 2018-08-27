@@ -47,6 +47,9 @@ namespace QAiku
                 Description.Text = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
+                var nextPage = new NavigationPage(new ListOfQuestionsPage());
+
+                await this.Navigation.PushAsync(nextPage);
             }
             catch (Exception)
             {

@@ -19,7 +19,7 @@
          
         </StackLayout>
 
-        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}">
+        <ListView x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}" >
             <!--ItemTemplate="{StaticResource messageview}"-->  
 
             <ListView.ItemTemplate>
@@ -30,20 +30,18 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="55"/>
-                                <RowDefinition Height="55"/>
-                                <RowDefinition Height="55"/>
+                                <!--<RowDefinition Height="55"/>
+                                <RowDefinition Height="55"/>-->
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="75"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="75"/>
                             </Grid.ColumnDefinitions>
-                            <Label x:Name="SendDateLabel" TextColor="White" Text="{Binding SendDate}" WidthRequest="50" Margin="15, -10, 0, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
+                                <Label x:Name="SendDateLabel" TextColor="White" Text="{Binding SendDate}" WidthRequest="50" Margin="15, -10, 0, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
                             <Label x:Name="SenderIdLabel" TextColor="White" Text="{Binding SenderId}" WidthRequest="50" Margin="15, -20, 0, 50" FontSize="14" Grid.Row="0" Grid.Column="1"/>
-                            <Button x:Name="ViewThreadButton" Grid.Row="0" Grid.Column="2" Text="View" FontSize="10" Margin="15, -40, 0, 50"   BindingContext="{Binding .}"/>
                         </Grid>
-                        <Button Text="View thread"/>
-                        <Label TextColor="White" Text="Chamber burning this art beak and on just there shall in some and at my stern shorn quoth entreating nights {Binding Description} " Grid.Row="1" Grid.Column="0" WidthRequest="100" Margin="15, -50, 0, 0" FontSize="14"/>
+                            <Button x:Name="ViewThreadButton" Text="View" FontSize="10" Margin="15, -40, 0, 50" Clicked="ViewThreadButton_Clicked" CommandParameter="{Binding}" BindingContext="{Binding}"/>
 
                     </StackLayout>
                 </ViewCell>
