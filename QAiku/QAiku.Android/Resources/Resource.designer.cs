@@ -3012,7 +3012,7 @@ namespace QAiku.Droid
 			public const int notify_panel_notification_icon_bg = 2130837802;
 			
 			// aapt resource value: 0x7f02012b
-			public const int qaiku = 2130837803;
+			public const int qaikulogo = 2130837803;
 			
 			// aapt resource value: 0x7f02012c
 			public const int settings_icon = 2130837804;
