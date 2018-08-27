@@ -16,21 +16,7 @@
 
             <Entry Grid.Column="1" Placeholder="Search..." Margin="15, 0"/>
             
-            <!--<Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="55"/>
-                    <RowDefinition Height="55"/>
-                    <RowDefinition Height="55"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="99"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="20"/>
-                </Grid.ColumnDefinitions>
-
-                <Button x:Name="SearchButton" Text="Search" Margin="10, 0, 0, 5" BackgroundColor="Blue"/>
-                
-            </Grid>-->
+         
         </StackLayout>
 
           <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"
