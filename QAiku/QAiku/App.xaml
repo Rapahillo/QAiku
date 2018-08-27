@@ -6,24 +6,23 @@
         <DataTemplate x:Key="messageview">
             <ViewCell>
                 <StackLayout Padding="25">
-                    <Label x:Name="SubjectLabel" TextColor="Orange" Text="{Binding Subject}" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
+                    <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="55"/>
-                            <RowDefinition Height="55"/>
-                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                            <!--<RowDefinition Height="auto"/>-->
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="SendDateLabel" TextColor="White" Text="{Binding SendDate}" WidthRequest="50" Margin="15, -10, 0, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
-                        <Label x:Name="SenderIdLabel" TextColor="White" Text="{Binding SenderId}" WidthRequest="50" Margin="15, -20, 0, 50" FontSize="14" Grid.Row="0" Grid.Column="1"/>
-                        <Button x:Name="ViewThreadButton" Grid.Row="0" Grid.Column="2" Text="View" FontSize="10" Margin="15, -40, 0, 50"   BindingContext="{Binding .}"/>
+                        <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="8, 18,-35, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
+                        <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-125, -4, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
-                    <Button Text="View thread"/>
-                    <Label TextColor="White" Text="Chamber burning this art beak and on just there shall in some and at my stern shorn quoth entreating nights {Binding Description} " Grid.Row="1" Grid.Column="0" WidthRequest="100" Margin="15, -50, 0, 0" FontSize="14"/>
+
+                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="6, -68, 270, 0" BindingContext="{Binding .}"/>
 
                 </StackLayout>
             </ViewCell>

@@ -2,21 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.AnswerPage"
-             BackgroundColor="#202020">
+             BackgroundColor="#ebd9c8">
     
         <StackLayout Padding="25">
-        <Label TextColor="Orange" Text="Question" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" Text="Question" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Description
             </Label.Text>
         </Label>
 
-        <Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="White" MaxLength="140" BindingContext="{Binding Msg}" />
+        <Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="#0c0000" MaxLength="140" BindingContext="{Binding Msg}" />
 
-        <Editor x:Name="Answer" Text="Answer" Margin="13, 50, 10, -25" TextColor="White" MaxLength="140" BindingContext="{Binding Msg}" />
+        <Editor x:Name="Answer" Text="Answer" Margin="13, 50, 10, -25" TextColor="#0c0000" MaxLength="140" BindingContext="{Binding Msg}" />
 
-        <Button x:Name="ViewAnswersButton" Text="View other answers" Margin="13, 50, 10, -25" BackgroundColor="Purple" TextColor="White"/>
+        <Button x:Name="ViewAnswersButton" Text="View other answers" Margin="13, 50, 10, -25" BackgroundColor="#003f5a" TextColor="White"/>
 
         <ListView x:Name="AnswerList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"
       
@@ -29,7 +29,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="SendAnswerButton" Text="Send Answer" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="Red" />
+        <Button x:Name="SendAnswerButton" Text="Send Answer" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="#007a7a" />
     </StackLayout>
     
 </ContentPage>

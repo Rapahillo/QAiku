@@ -3,21 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
              x:Class="QAiku.LoginPage"
-             BackgroundColor="#202020">
+             BackgroundColor="#ebd9c8">
+    
     <ContentPage.Content>
         <StackLayout
             Spacing="20"
             Padding="20"
             VerticalOptions="Center" >
 
-            <Image Source="loginLogo.png" />
-            <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="Welcome to QAiku"
+            <Label FontAttributes="Bold" FontSize="30" TextColor="#003f5a" Text="Welcome to"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
-            <Entry x:Name="UsernameLoginEntry" Placeholder="Username" TextColor="White" PlaceholderColor="White" BindingContext="{Binding User}"/>
-            <Entry Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
-            <Button x:Name="LoginButton" Text="Login" TextColor="White" BackgroundColor="#8c011d" Clicked="LoginButton_Clicked"/>
-            <Button x:Name="RegisterNewUserButton" BackgroundColor="Transparent" FontSize="12" TextColor="White" Text="Not a member? Sign up now" VerticalOptions="Center"
+            <Image Source="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png"/>
+
+
+            <Entry x:Name="UsernameLoginEntry" Placeholder="Username" TextColor="#0c0000" PlaceholderColor="#0c0000" BindingContext="{Binding User}"/>
+            <Entry Placeholder="Password" IsPassword="True" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
+            <Button x:Name="LoginButton" Text="Login" TextColor="White" BackgroundColor="#007a7a" Clicked="LoginButton_Clicked"/>
+            <Button x:Name="RegisterNewUserButton" BackgroundColor="Transparent" FontSize="12" TextColor="#0c0000" Text="Not a member? Sign up now" VerticalOptions="Center"
             HorizontalOptions="Center" Clicked="RegisterNewUserButton_Clicked"/>
 
         </StackLayout>

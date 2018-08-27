@@ -3,25 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
              x:Class="QAiku.SignupPage"
-             BackgroundColor="#202020">
+             BackgroundColor="#ebd9c8">
    
     <ContentPage.Content>
         <StackLayout
             Spacing="20"
             Padding="20"
             VerticalOptions="Center" >
-            <Image Source="loginLogo.png" />
-            <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="Register to QAiku"
+            <Label FontAttributes="Bold" FontSize="25" TextColor="#003f5a" Text="Register to"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
+            <Image Source="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png" />
             <!--<Entry Placeholder="User Name" TextColor="White" PlaceholderColor="White" />-->
-            <Entry Placeholder="Email" Keyboard="Email" TextColor="White" PlaceholderColor="White"/>
-            <Entry Placeholder="Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
-            <Entry Placeholder="Re-Enter Password" IsPassword="True" TextColor="White" PlaceholderColor="White"/>
-            <Button x:Name="SignUpButton" Text="Sign Up" TextColor="White" BackgroundColor="#8c011d" Clicked="SignUpButton_Clicked"/>
+            <Entry Placeholder="Email" Keyboard="Email" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
+            <Entry Placeholder="Password" IsPassword="True" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
+            <Entry Placeholder="Re-Enter Password" IsPassword="True" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
+            <Button x:Name="SignUpButton" Text="Sign Up" TextColor="White" BackgroundColor="#de6600" Clicked="SignUpButton_Clicked"/>
             <Button x:Name="facebookLoginButton" Text="Facebook Login" BackgroundColor="#3B5998" Clicked="facebookLoginButton_Clicked"/>
             <Button x:Name="googleLoginButton" Text="LinkedIn Login" BackgroundColor="#0077B5" Clicked="googleLoginButton_Clicked"/>
-            <Button x:Name="ReturnToLoginButton" BackgroundColor="Transparent" FontSize="12" TextColor="White" Text="Already signed up? Sign in." VerticalOptions="Center"
+            <Button x:Name="ReturnToLoginButton" BackgroundColor="Transparent" FontSize="12" TextColor="#0c0000" Text="Already signed up? Sign in." VerticalOptions="Center"
                 HorizontalOptions="Center" Clicked="ReturnToLoginButton_Clicked"/>
 
 

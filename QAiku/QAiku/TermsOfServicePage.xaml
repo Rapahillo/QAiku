@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QAiku.TermsOfServicePage">
+             x:Class="QAiku.TermsOfServicePage"
+             BackgroundColor="#ebd9c8">
     
   
       <StackLayout Padding="25">
-        <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="Terms of Service"
+        <Label FontAttributes="Bold" FontSize="30" TextColor="#003f5a" Text="Terms of Service"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
 
-        <Label TextColor="White" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="In order to provide our Services (as defined below) through our app, service, feature, we need to obtain your express agreement to our Terms of Service (Terms). You agree to our Terms by registering, installing, accessing, or using our app, service, features, or software."/>
-        <Label TextColor="White" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Age. If you live in a country in the European Region, you must be at least 16 years old to use our Services or such greater age required in your country to register for or use our Services. If you live in any other country except those in the European Region, you must be at least 13 years old to use our Services or such greater age required in your country to register for or use our Services. In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Terms in your country, your parent or guardian must agree to our Terms on your behalf."/>
-        <Label TextColor="White" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Registration. You must register for our Services using accurate information, provide your current mobile phone number and email, and, if you change them, update them to your user profile."/>
-        <Label TextColor="White" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Fees And Taxes. You are responsible for all carrier data plans, Internet fees, and other fees and taxes associated with your use of our Services"/>
+        <Label TextColor="#0c0000" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="In order to provide our Services (as defined below) through our app, service, feature, we need to obtain your express agreement to our Terms of Service (Terms). You agree to our Terms by registering, installing, accessing, or using our app, service, features, or software."/>
+        <Label TextColor="#0c0000" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Age. If you live in a country in the European Region, you must be at least 16 years old to use our Services or such greater age required in your country to register for or use our Services. If you live in any other country except those in the European Region, you must be at least 13 years old to use our Services or such greater age required in your country to register for or use our Services. In addition to being of the minimum required age to use our Services under applicable law, if you are not old enough to have authority to agree to our Terms in your country, your parent or guardian must agree to our Terms on your behalf."/>
+        <Label TextColor="#0c0000" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Registration. You must register for our Services using accurate information, provide your current mobile phone number and email, and, if you change them, update them to your user profile."/>
+        <Label TextColor="#0c0000" Margin="15" FontSize="16" HorizontalTextAlignment="Center" Text="Fees And Taxes. You are responsible for all carrier data plans, Internet fees, and other fees and taxes associated with your use of our Services"/>
     </StackLayout>
   
 </ContentView>

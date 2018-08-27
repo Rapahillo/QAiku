@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.UserProfilePage"
-             BackgroundColor="#202020">
+             BackgroundColor="#ebd9c8">
 
     <StackLayout
             Padding="20"
             Spacing="20">
         <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
         <Image Source="loginLogo.png" HorizontalOptions="Start"/>
-        <Label FontSize="35" TextColor="White" Text="Name" VerticalOptions="Center"
+        <Label FontSize="35" TextColor="#003f5a" Text="Name" VerticalOptions="Center"
             HorizontalOptions="Center" />
 
         <Grid >
@@ -23,29 +23,29 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label HorizontalTextAlignment="Center" Text="Email" Grid.Row="0" Grid.Column="0" />
-            <Label HorizontalTextAlignment="Center" Text="Phone number" Grid.Row="0" Grid.Column="1" />
-            <Label HorizontalTextAlignment="Center" Text="Rank" Grid.Row="0" Grid.Column="2" />
-            <Label HorizontalTextAlignment="Center" Text="Test@Test.com" Grid.Row="1" Grid.Column="0" />
-            <Label HorizontalTextAlignment="Center" Text="+358453746658" Grid.Row="1" Grid.Column="1" />
-            <Label HorizontalTextAlignment="Center" Text="Master Yoda" Grid.Row="1" Grid.Column="2" />
+            <Label HorizontalTextAlignment="Center" TextColor="#003f5a" Text="Email" Grid.Row="0" Grid.Column="0" />
+            <Label HorizontalTextAlignment="Center" TextColor="#003f5a" Text="Phone number" Grid.Row="0" Grid.Column="1" />
+            <Label HorizontalTextAlignment="Center" TextColor="#003f5a" Text="Rank" Grid.Row="0" Grid.Column="2" />
+            <Label HorizontalTextAlignment="Center" TextColor="#0c0000" Text="Test@Test.com" Grid.Row="1" Grid.Column="0" />
+            <Label HorizontalTextAlignment="Center" TextColor="#0c0000" Text="+358453746658" Grid.Row="1" Grid.Column="1" />
+            <Label HorizontalTextAlignment="Center" TextColor="#0c0000" Text="Master Yoda" Grid.Row="1" Grid.Column="2" />
         </Grid>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Messages
             </Label.Text>
             </Label>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Likes
             </Label.Text>
             </Label>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Followers
             </Label.Text>
         </Label>
-        <Label TextColor="White" WidthRequest="100" Margin="15" FontSize="16">
+        <Label TextColor="#003f5a" WidthRequest="100" Margin="15" FontSize="16">
             <Label.Text>
                 Password
             </Label.Text>

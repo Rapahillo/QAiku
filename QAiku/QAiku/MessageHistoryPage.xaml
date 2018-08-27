@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.MessageHistoryPage"
-             BackgroundColor="#202020">
+             BackgroundColor="#ebd9c8">
     
         <StackLayout Padding="25">
 
-        <Label FontAttributes="Bold" FontSize="30" TextColor="White" Text="View Message History"
+        <Label FontAttributes="Bold" FontSize="30" TextColor="#003f5a" Text="View Message History"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
 
