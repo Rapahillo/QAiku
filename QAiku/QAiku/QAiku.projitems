@@ -13,8 +13,17 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnswerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ChangePasswordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)GiveFeedbackPage.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ListOfQuestionsPage.xaml.cs">
       <SubType>Code</SubType>
@@ -25,11 +34,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Model\MsgModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Model\UserModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MsgItemView.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)MessageHistoryPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Model\MsgModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\UserModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,15 +51,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\HttpCalls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignupPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TermsOfServicePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserProfilePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MsgItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +99,27 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MsgItemView.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AnswerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ChangePasswordPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MessageHistoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TermsOfServicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)GiveFeedbackPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
