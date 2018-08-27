@@ -4,11 +4,15 @@
              xmlns:local="clr-namespace:QAiku"
              x:Class="QAiku.MainPage"
               BackgroundColor="#ebd9c8">
-    
+
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logo"
+                     Icon="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png"
+                     Priority="0"/>
+    
         <ToolbarItem Text="Settings"
                      Icon="settings_icon.png"
-                     Priority="0"
+                     Priority="1"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <Grid>
