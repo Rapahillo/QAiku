@@ -10,19 +10,19 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="*"/>
-                            <!--<RowDefinition Height="auto"/>-->
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
+                        <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="8, 18,-35, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
-                        <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-125, -4, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                        </Grid.ColumnDefinitions>-->
+                        <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
+                        <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
 
-                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="6, -68, 270, 0" BindingContext="{Binding .}"/>
+                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 270, 0" BindingContext="{Binding .}"/>
 
                 </StackLayout>
             </ViewCell>
