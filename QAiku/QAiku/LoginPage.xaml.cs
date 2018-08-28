@@ -33,7 +33,7 @@ namespace QAiku
                 var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
-                await this.Navigation.PushAsync(nextPage);
+                await this.Navigation.PushModalAsync(nextPage);
             }
             
         }

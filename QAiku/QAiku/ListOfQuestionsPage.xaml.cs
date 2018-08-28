@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using QAiku.ViewModel;
 using Android.Util;
 using System.Collections.ObjectModel;
+using QAiku.Droid;
 
 namespace QAiku
 {
@@ -17,7 +18,8 @@ namespace QAiku
     {
         public ListOfQuestionsPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            var ToolbarResource = Resource.Layout.Toolbar;
+            //NavigationPage.SetHasNavigationBar(this, false);
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
             
