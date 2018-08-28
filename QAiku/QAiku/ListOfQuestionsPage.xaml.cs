@@ -22,7 +22,9 @@ namespace QAiku
             InitializeComponent();
             
             BindingContext = new ListOfQuestionsPageModel();
-           
+            //ViewThreadButton.Clicked += ViewThreadButton_Clicked
+
+
             Log.Info("QADEBUG", $"ListOfQuestionsPagen konstruktori valmistui");
         }
         protected async override void OnAppearing()
@@ -48,11 +50,15 @@ namespace QAiku
 
         }
 
+
+
         private void NewMessageButton_Clicked(object sender, EventArgs e)
         {
             var nextPage = new QuestionPage();
             Navigation.PushAsync(nextPage);
         }
+
+  
 
         //private void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         //{

@@ -21,8 +21,8 @@
                         <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="8, 18,-35, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
                         <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-125, -4, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
+                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="6, -68, 0, 0"   Command="{Binding Path=BindingContext.ViewThreadCommand}" CommandParameter="{Binding}" BindingContext="{Binding}"/>
 
-                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="6, -68, 270, 0" BindingContext="{Binding .}"/>
 
                 </StackLayout>
             </ViewCell>
