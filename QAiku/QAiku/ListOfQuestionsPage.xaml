@@ -7,27 +7,15 @@
 
     <StackLayout>
 
-        <!--<Image Source="loginLogo.png" />
-        <Button x:Name="SettingsButton" Text="Settings" Margin="10, 10, 10, 0" HorizontalOptions="End" BackgroundColor="BlueViolet" />
-        <Button x:Name="BackButton" Text="Back" Margin="15, -55, 25, 8" HorizontalOptions="Start" BackgroundColor="Blue"/>-->
-
-
         <StackLayout >
 
             <Entry Grid.Column="1" Placeholder="Search..." PlaceholderColor="#0c0000" TextColor="#0c0000" Margin="25, 25, 25, 5"/>
 
         </StackLayout>
-        <ListView x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="Moikkavaan"></TextCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-
-
-        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 10, 10" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="NewMessageButton_Clicked" />
+        <ListView x:Name="QuestionList" RowHeight="220" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}" ItemTemplate="{StaticResource messageview}"/>
+    
+    
+        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 20, 20" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="NewMessageButton_Clicked" />
 
     </StackLayout>
     

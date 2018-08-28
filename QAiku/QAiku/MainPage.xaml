@@ -5,7 +5,7 @@
              x:Class="QAiku.MainPage"
               BackgroundColor="#ebd9c8">
 
-    <ContentPage.ToolbarItems>
+    <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
                      Icon="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png"
                      Priority="0"/>
@@ -22,7 +22,7 @@
         
         <StackLayout Grid.Row="0" Padding="20">
             <Label Text="QAiku" TextColor="#003f5a" FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            <Button x:Name="SendMessageButton" Text="Send" Clicked="SendMessageButton_Clicked" BackgroundColor="#007a7a" />
+            <Button x:Name="SendMessageButton" Text="Send" Clicked="SendMessageButton_Clicked" Margin="60, 60, 60, 10" BackgroundColor="#007a7a" />
 
         </StackLayout>
     </Grid>
