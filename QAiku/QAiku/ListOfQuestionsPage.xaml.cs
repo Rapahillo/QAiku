@@ -52,5 +52,11 @@ namespace QAiku
             var nextPage = new QuestionPage();
             Navigation.PushAsync(nextPage);
         }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new UserProfilePage();
+            Navigation.PushAsync(nextPage);
+        }
     }
 }
