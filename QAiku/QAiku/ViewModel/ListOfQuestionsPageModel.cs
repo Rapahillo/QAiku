@@ -47,21 +47,12 @@ namespace QAiku.ViewModel
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
-            ViewThreadCommand = new Command(ViewThreadButton_Command);
+            //ViewThreadCommand = new Command(ViewThreadButton_Command);
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
 
         }
 
-        private void ViewThreadButton_Command(object obj)
-        {
-            Log.Info("QADEBUG", "Viewthreadbutton_command clicked!");
-            var item = obj as MsgModel;
-
-            Log.Info("QADEBUG", $"{item.ToString()}");
-            //var nextPage = new QuestionThreadPage(item);
-            //Navigation.PushAsync(nextPage);
-
-        }
+ 
 
         public static async Task<ListOfQuestionsPageModel> Update()
         {

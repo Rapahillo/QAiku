@@ -60,6 +60,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserProfilePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AnswerPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
   </ItemGroup>

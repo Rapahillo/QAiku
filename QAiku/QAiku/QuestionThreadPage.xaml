@@ -6,22 +6,48 @@
 
     <StackLayout Padding="25">
 
-        <Label TextColor="#003f5a" Text="Sender" WidthRequest="100" Margin="15, 0, 0, -25" FontSize="20"/>
-        <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" Margin="15" FontSize="16"/>
 
-        <Label TextColor="#003f5a" Text="Question" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20"/>
-        <Label  BindingContext="{Binding Question}"  Text="{Binding Subject}" TextColor="#0c0000" WidthRequest="100" Margin="15" FontSize="16"/>
+        <Label  BindingContext="{Binding Question}"  Text="{Binding Subject}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15" FontSize="20"/>
 
-
-        <Label TextColor="#003f5a" Text="Description" WidthRequest="100" Margin="15, 5, 0, -25" FontSize="20" />
-        <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
+        <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15, -50, 0, 0" FontSize="16"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
 
 
 
-        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTemplate="{StaticResource messageview}"/>
+        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}">
+            <ListView.ItemTemplate>
+                
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="25">
+                        <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>-->
+                            <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
+                            <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                        </Grid>
+                            <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14"/>
+                                
+
+                            <!--<Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 0, 0" CommandParameter="{Binding}"  BindingContext="{Binding}"/>-->
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
-        <Button x:Name="NewQuestionButton" Text="New question" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="#007a7a" />
+        <Button x:Name="SendYourAnswer" Text="Send your answer" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="SendYourAnswer_Clicked" />
         
     </StackLayout>
     

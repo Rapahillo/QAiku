@@ -11,14 +11,16 @@ using Xamarin.Forms.Xaml;
 
 namespace QAiku
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class QuestionThreadPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class QuestionThreadPage : ContentPage
+    {
         private MsgModel _message;
-		public QuestionThreadPage (MsgModel message)
-		{
+        public QuestionThreadPage (MsgModel message)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
-			InitializeComponent ();
+            InitializeComponent ();
             _message = message;
             BindingContext = new QuestionThreadPageModel(message);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
@@ -36,7 +38,13 @@ namespace QAiku
 
         }
 
+        private void SendYourAnswer_Clicked(object sender, EventArgs e)
+        {
+            Log.Info("QADEBUG", "SendYourAnswer clicked!");
+            Log.Info("QADEBUG", $"{_message.ToString()}");
+            var nextPage = new AnswerPage(_message);
+            Navigation.PushAsync(nextPage);
 
-
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace QAiku
             msg.Category = 1;
             msg.Favorite = true;
             msg.State = 1;
+            msg.ThreadId = Guid.NewGuid().ToString();
             try
             {
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
