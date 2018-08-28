@@ -7,7 +7,7 @@
 
     <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
-                     Icon="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png"
+                     Icon="qaikulogo.png"
                      Priority="0"/>
 
         <ToolbarItem Text="Settings"
