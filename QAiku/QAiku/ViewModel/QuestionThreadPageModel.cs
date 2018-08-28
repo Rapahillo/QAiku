@@ -67,20 +67,22 @@ namespace QAiku.ViewModel
         {
             Log.Info("QADEBUG", "QuestionThreadPageModelin update käynnistyi");
             var questionThreadPageModel = new QuestionThreadPageModel(message);
-            string documentid = message.id;
-            await questionThreadPageModel.Initialize(documentid);
+            string threadid = message.ThreadId;
+            await questionThreadPageModel.Initialize(threadid);
             Log.Info("QADEBUG", "QuestionThreadPageModelin update valmistui");
             return questionThreadPageModel;
 
 
         }
 
-        private async Task Initialize(string documentid)
+        private async Task Initialize(string threadid)
         {
             Log.Info("QADEBUG", "QuestionThreadPageModelin Initialize-metodi käynnistyi");
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
-            List<MsgModel> msgs = await call.GetThreadAsync(documentid);
+            List<MsgModel> msgs = await call.GetThreadAsync(threadid);
+            _question = msgs[0];
+            Log.Info("qadebug", $"{_question.ToString()}");
             msgs.RemoveAt(0);
             _answerlist = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
             Log.Info("QADEBUG", $"GetThreadInitialize valmistui!");

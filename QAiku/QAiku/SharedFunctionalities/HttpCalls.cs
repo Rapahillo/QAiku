@@ -70,7 +70,7 @@ namespace QAiku.SharedFunctionalities
 
         public async Task<List<MsgModel>> GetThreadAsync(string id)
         {
-            string resturl = baseurl + "GetByThreadId";
+            string resturl = baseurl + $"GetByThreadId?threadId={id}";
             var response = await httpClient.GetAsync(resturl);
             List<MsgModel> Messages = null;
             if (response.IsSuccessStatusCode)

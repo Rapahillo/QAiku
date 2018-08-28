@@ -41,6 +41,7 @@ namespace QAiku
         private void SendYourAnswer_Clicked(object sender, EventArgs e)
         {
             Log.Info("QADEBUG", "SendYourAnswer clicked!");
+
             Log.Info("QADEBUG", $"{_message.ToString()}");
             var nextPage = new AnswerPage(_message);
             Navigation.PushAsync(nextPage);

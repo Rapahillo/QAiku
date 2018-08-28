@@ -20,7 +20,7 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Padding="25">
-                        <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
+                        <!--<Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>-->
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>

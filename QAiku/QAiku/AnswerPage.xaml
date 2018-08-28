@@ -14,7 +14,7 @@
 
 
 
-        <Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="#0c0000" MaxLength="140"  />
+        <!--<Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="#0c0000" MaxLength="140"  />-->
 
         <Editor x:Name="Answer" Text="Your answer" Margin="13, 50, 10, -25" TextColor="#0c0000" MaxLength="140"  />
         <Button x:Name="SubmitAnswerButton" Text="Submit your answer" Clicked="SubmitAnswerButton_Clicked" Margin="16, 50, 14, -25"  BackgroundColor="#003f5a" TextColor="White"/>

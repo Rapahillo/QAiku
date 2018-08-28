@@ -34,7 +34,7 @@ namespace QAiku
         private async void SubmitAnswerButton_Clicked(object sender, EventArgs e)
         {
             MsgModel msg = new MsgModel();
-            msg.Subject = Subject.Text;
+            msg.Subject = $"Re: {_message.Subject}";
             msg.Description = Answer.Text;
             msg.SenderId = "kovakoodattuLahettaja@answerpage.fi";
 
@@ -51,7 +51,7 @@ namespace QAiku
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
                 await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                Subject.Text = "Subject";
+                //Subject.Text = "Subject";
                 Answer.Text = "Your answer";
               
                 var nextPage = new NavigationPage(new QuestionThreadPage(_message));

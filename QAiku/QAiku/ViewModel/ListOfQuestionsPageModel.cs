@@ -70,7 +70,8 @@ namespace QAiku.ViewModel
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetAllMessagesAsync(); //Once we have user data, replace this with messages sent and received by the user
-            msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            var questions = msgs.Where(m => m.Category == 1);
+            msgs = questions.OrderByDescending(m => m.SendDate).ToList();
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
 
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
