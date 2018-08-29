@@ -42,9 +42,9 @@ namespace QAiku
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
                 var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
-                Console.WriteLine(response.Content.ReadAsStringAsync());
+                //Console.WriteLine(response.Content.ReadAsStringAsync());
                 //await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                Toast toast = Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long);
+                Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long);
                 
                 Question.Text = "Question";
                 Description.Text = "Description";
@@ -53,6 +53,7 @@ namespace QAiku
             }
             catch (Exception)
             {
+                //await Toast.Ma
                 await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
             }
         }
