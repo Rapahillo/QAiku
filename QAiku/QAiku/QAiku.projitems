@@ -28,6 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ListOfQuestionsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)LoadingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -50,6 +53,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\HttpCalls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\InverseBoolCter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorCter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateStringCter.cs" />
@@ -64,6 +68,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AnswerPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\LoadingPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)GiveFeedbackPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoadingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

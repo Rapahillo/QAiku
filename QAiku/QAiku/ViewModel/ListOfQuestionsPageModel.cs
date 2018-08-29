@@ -43,7 +43,19 @@ namespace QAiku.ViewModel
                 _user = value;
             }
         }
-        public ICommand ViewThreadCommand { get; private set; }
+        private bool _toggleVisibility = true;
+        public bool ToggleVisibility { get => _toggleVisibility; set
+            {
+                if (_toggleVisibility == value)
+                {
+                    return;
+                }
+                _toggleVisibility = value;
+                OnPropertyChanged("ToggleVisibility");
+
+
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,6 +76,7 @@ namespace QAiku.ViewModel
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
             //ViewThreadCommand = new Command(ViewThreadButton_Command);
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
+            _toggleVisibility = true;
 
         }
 
