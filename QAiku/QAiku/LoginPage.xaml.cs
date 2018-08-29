@@ -23,6 +23,8 @@ namespace QAiku
             userList.Add("mikko@qaiku.com", "Salainen1!");
             userList.Add("jussi@qaiku.com", "Salainen1!");
             userList.Add("ville@qaiku.com", "Salainen1!");
+
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
@@ -47,7 +49,7 @@ namespace QAiku
             {
                 var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
-
+                Toast.MakeText(Android.App.Application.Context, "Login succesful!", ToastLength.Long).Show();
                 await this.Navigation.PushModalAsync(nextPage);
             }
             else if (authentication == false)

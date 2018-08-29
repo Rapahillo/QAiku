@@ -33,7 +33,7 @@ namespace QAiku
             MsgModel msg = new MsgModel();
             msg.Subject = Question.Text;
             msg.Description = Description.Text;
-            msg.SenderId = "kovakoodattuLahettaja@questionpage.fi";
+            msg.SenderId = User.UserId;
             msg.RecipientsIdCsv = ChooseRecipient.Text;
             msg.SendDate = DateTime.Now;
             msg.Category = 1;

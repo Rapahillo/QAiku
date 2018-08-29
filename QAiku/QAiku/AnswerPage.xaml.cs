@@ -19,16 +19,19 @@ namespace QAiku
 	{
         private MsgModel _message;
         HttpClient httpClient = new HttpClient();
+        UserModel User;
 
-        public AnswerPage (MsgModel message)
+        public AnswerPage (MsgModel message, UserModel user)
 		{
 
             NavigationPage.SetHasNavigationBar(this, false);
 
             Log.Info("QADEBUG", "AnswerPagen konstruktori käynnistyi");
-            InitializeComponent();
             _message = message;
-            BindingContext = new QuestionThreadPageModel(message);
+            User = user;
+            InitializeComponent();
+
+            //BindingContext = new QuestionThreadPageModel(message);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
         }
 
@@ -37,7 +40,7 @@ namespace QAiku
             MsgModel msg = new MsgModel();
             msg.Subject = $"Re: {_message.Subject}";
             msg.Description = Answer.Text;
-            msg.SenderId = "kovakoodattuLahettaja@answerpage.fi";
+            msg.SenderId = User.UserId;
 
             msg.RecipientsIdCsv = $"{_message.RecipientsIdCsv};{msg.SenderId}";
             msg.SendDate = DateTime.Now.ToLocalTime() ;
@@ -55,8 +58,8 @@ namespace QAiku
                 //await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
                 //Subject.Text = "Subject";
                 Answer.Text = "Your answer";
-              
-                var nextPage = new NavigationPage(new QuestionThreadPage(_message));
+
+                var nextPage = new NavigationPage(new QuestionThreadPage(_message, User));
 
                 await this.Navigation.PushAsync(nextPage);
             }

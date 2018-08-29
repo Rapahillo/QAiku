@@ -29,6 +29,20 @@ namespace QAiku.ViewModel
                 OnPropertyChanged("Messages");
             }
         }
+
+        private UserModel _user;
+        public UserModel User
+        {
+            get { return _user; }
+            set
+            {
+                if (_user == value)
+                {
+                    return;
+                }
+                _user = value;
+            }
+        }
         public ICommand ViewThreadCommand { get; private set; }
 
 
@@ -43,9 +57,10 @@ namespace QAiku.ViewModel
         }
         //public MsgModel MsgModel { get; set; }
 
-        public ListOfQuestionsPageModel()
+        public ListOfQuestionsPageModel(UserModel user)
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
+            _user = user;
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
             //ViewThreadCommand = new Command(ViewThreadButton_Command);
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
@@ -54,10 +69,10 @@ namespace QAiku.ViewModel
 
  
 
-        public static async Task<ListOfQuestionsPageModel> Update()
+        public static async Task<ListOfQuestionsPageModel> Update(UserModel user)
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin update käynnistyi");
-            var listOfQuestionsPageModel = new ListOfQuestionsPageModel();
+            var listOfQuestionsPageModel = new ListOfQuestionsPageModel(user);
             await listOfQuestionsPageModel.Initialize();
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin update valmistui");
             return listOfQuestionsPageModel;
@@ -69,9 +84,24 @@ namespace QAiku.ViewModel
         {
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
-            List<MsgModel> msgs = await call.GetAllMessagesAsync(); //Once we have user data, replace this with messages sent and received by the user
-            var questions = msgs.Where(m => m.Category == 1);
-            msgs = questions.OrderByDescending(m => m.SendDate).ToList();
+            List<MsgModel> msgs = new List<MsgModel>() ;
+            List<MsgModel> sent = await call.GetSentMessagesAsync(User.UserId); //Once we have user data, replace this with messages sent and received by the user
+            List<MsgModel> received = await call.GetReceivedMessagesAsync(User.UserId);
+            //var questions = msgs.Where(m => m.Category == 1);
+            foreach (var item in sent)
+            {
+
+                msgs.Add(item);
+            }
+            foreach (var item in received)
+            {
+                List<MsgModel> thread = await call.GetThreadAsync(item.ThreadId);
+                MsgModel originalquestion = thread[0];
+                msgs.Add(originalquestion);
+
+
+            }
+            msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
 
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
