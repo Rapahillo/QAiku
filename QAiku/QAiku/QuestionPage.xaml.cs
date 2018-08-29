@@ -43,22 +43,20 @@ namespace QAiku
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
                 var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
-                //Console.WriteLine(response.Content.ReadAsStringAsync());
                 //await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long);
-                
+                Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long).Show();
+
                 Question.Text = "Question";
                 Description.Text = "Description";
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
                 var nextPage = new NavigationPage(new ListOfQuestionsPage());
-
-                await this.Navigation.PushAsync(nextPage);
+                //var nextPage = new ListOfQuestionsPage();
+                await this.Navigation.PushModalAsync(nextPage);
             }
             catch (Exception)
             {
-                //await Toast.Ma
-                await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
+                Toast.MakeText(Android.App.Application.Context, "An error occured. Please, try sending your question again.", ToastLength.Long).Show();
             }
         }
 
@@ -67,5 +65,7 @@ namespace QAiku
             var nextPage = new UserProfilePage();
             Navigation.PushAsync(nextPage);
         }
+        
     }
+
 }
