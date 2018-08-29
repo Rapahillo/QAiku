@@ -2,8 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:qaiku="clr-namespace:QAiku"
+             xmlns:local="clr-namespace:QAiku.SharedFunctionalities"
              x:Class="QAiku.ListOfQuestionsPage"
              BackgroundColor="#ebd9c8">
+    <ContentPage.Resources>
+        <local:StateColorCter x:Key="StateToColorConverter" />
+        <local:StateStringCter x:Key="StateToStringConverter" />
 
     <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
@@ -15,6 +19,9 @@
                      Priority="1"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
+
+    </ContentPage.Resources>
+
     <StackLayout>
 
         <StackLayout >
@@ -22,8 +29,8 @@
             <Entry Grid.Column="1" Placeholder="Search..." PlaceholderColor="#0c0000" TextColor="#0c0000" Margin="25, 25, 25, 5"/>
 
         </StackLayout>
+
         <ListView x:Name="QuestionList" RowHeight="150" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}" ItemTemplate="{StaticResource messageview}"/>
-    
     
         <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 20, 20" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="NewMessageButton_Clicked" />
 

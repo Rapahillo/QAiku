@@ -6,7 +6,7 @@
         <DataTemplate x:Key="messageview">
             <ViewCell>
                 <StackLayout Padding="25">
-                    <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
+                    <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="4, -25, 35, -5" FontSize="20"/>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -18,14 +18,15 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>-->
-                        <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
-                        <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                        <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-60, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
+                        <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-179, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
 
-                    <Button x:Name="ViewThreadButton" Text="View" BackgroundColor="#003f5a" Margin="0, -70, 180, -60" BindingContext="{Binding .}"/>
+                    <Button x:Name="ViewThreadButton" Text="View" BackgroundColor="#003f5a" Margin="2, -80, 250, -60" BindingContext="{Binding .}"/>
 
                 </StackLayout>
             </ViewCell>
         </DataTemplate>
+
     </Application.Resources>
 </Application>

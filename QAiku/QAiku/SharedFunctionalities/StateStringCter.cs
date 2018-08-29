@@ -6,8 +6,7 @@ using QAiku.Model;
 
 namespace QAiku.SharedFunctionalities
 {
-    class StateColorCter:IValueConverter
-
+    class StateStringCter:IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
@@ -15,24 +14,22 @@ namespace QAiku.SharedFunctionalities
             switch (state)
             {
                 case State.Response:
-                    return "#ebd9c8";
+                    return "Response";
                 case State.Unanswered:
-                    return "#de6600";
+                    return "Unanswered";
                 case State.Partial:
-                    return "#fea02f";
+                    return "Partial";
                 case State.Answered:
-                    return "#ebd9c8";
+                    return "Answered";
                 default:
                     break;
             }
-         
-            return Color.White;
+            return null;
+            
         }
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
         }
     }
-//enum State { Response, Unanswered, Partial, Answered }
 }
-
