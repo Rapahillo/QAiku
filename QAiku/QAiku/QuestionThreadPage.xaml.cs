@@ -8,6 +8,7 @@ using Android.Util;
 using QAiku.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using QAiku.SharedFunctionalities;
 
 namespace QAiku
 {
@@ -48,9 +49,26 @@ namespace QAiku
 
         }
 
-        private void StateButton_Clicked(object sender, EventArgs e)
+        private async void StateButton_Clicked(object sender, EventArgs e)
         {
-            Log.Info("qadebug", "Statebutton clicked");
+            Log.Info("qadebug", $"Statebutton clicked, {_message.State.ToString()}");
+            if (_message.State == 1)
+            {
+                _message.State = 3;
+            }
+            else
+            {
+            _message.State--;
+
+            }
+            Log.Info("qadebug", $"Statebutton clicked, {_message.State.ToString()} after click");
+            HttpCalls call = new HttpCalls();
+            MsgModel updated = await call.PutStateAsync(_message.id, _message);
+            Log.Info("qadebug", $"Statebutton clicked, {updated.State.ToString()} after click");
+            _message = updated;
+            BindingContext = await QuestionThreadPageModel.Update(_message);
+
+
 
         }
     }

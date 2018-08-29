@@ -27,5 +27,6 @@
                 </StackLayout>
             </ViewCell>
         </DataTemplate>
+
     </Application.Resources>
 </Application>
