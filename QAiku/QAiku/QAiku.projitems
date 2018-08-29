@@ -51,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\HttpCalls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorCter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignupPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.QuestionThreadPage"
+                          xmlns:local="clr-namespace:QAiku.SharedFunctionalities"
+
               BackgroundColor="#ebd9c8">
 
     <StackLayout Padding="25">
@@ -11,7 +13,7 @@
 
         <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15, -50, 0, 0" FontSize="16"/>
         <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
-
+        <!--<Button x:Name="StateButton" BackgroundColor="{Binding State, Converter={StaticResource StateColorCter}}" Clicked="StateButton_Clicked"/>-->
 
 
         <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}">

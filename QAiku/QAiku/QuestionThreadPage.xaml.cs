@@ -47,5 +47,11 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
 
         }
+
+        private void StateButton_Clicked(object sender, EventArgs e)
+        {
+            Log.Info("qadebug", "Statebutton clicked");
+
+        }
     }
 }

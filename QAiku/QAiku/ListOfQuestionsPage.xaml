@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:qaiku="clr-namespace:QAiku"
+             xmlns:local="clr-namespace:QAiku.SharedFunctionalities"
              x:Class="QAiku.ListOfQuestionsPage"
              BackgroundColor="#ebd9c8">
 
@@ -17,6 +18,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="25">
+                            <!--BackgroundColor="{Binding State, Converter={StaticResource StateColorCter}}">-->
                             <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
                             <Grid>
                                 <Grid.RowDefinitions>
