@@ -15,11 +15,11 @@ namespace QAiku
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListOfQuestionsPage : ContentPage
     {
-        public ListOfQuestionsPage()
+        UserModel User;
+        public ListOfQuestionsPage(UserModel user)
         {
 
-            NavigationPage.SetHasNavigationBar(this, false);
-
+            User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
             
@@ -56,11 +56,17 @@ namespace QAiku
 
         private void NewMessageButton_Clicked(object sender, EventArgs e)
         {
-            var nextPage = new QuestionPage();
+            var nextPage = new QuestionPage(User);
             Navigation.PushAsync(nextPage);
         }
 
-  
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new UserProfilePage();
+            Navigation.PushAsync(nextPage);
+        }
+
+
 
         //private void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         //{

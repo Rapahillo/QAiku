@@ -1,4 +1,5 @@
-﻿using QAiku.Droid;
+﻿using Android.Widget;
+using QAiku.Droid;
 using QAiku.Model;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,14 @@ namespace QAiku
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        Dictionary<string, string> userList = new Dictionary<string, string>();
+
         public LoginPage()
         {
+            userList.Add("sari@qaiku.com", "Salainen1!");
+            userList.Add("mikko@qaiku.com", "Salainen1!");
+            userList.Add("jussi@qaiku.com", "Salainen1!");
+            userList.Add("ville@qaiku.com", "Salainen1!");
             InitializeComponent();
         }
 
@@ -24,18 +31,29 @@ namespace QAiku
             bool authentication = false;
             UserModel user = new UserModel();
             user.UserId = UsernameLoginEntry.Text;
-            authentication = true; //This is a development stage solution, don't keep!!
+            foreach (var item in userList)
+            {
+                if (item.Key == user.UserId && item.Value == UserPasswordEntry.Text)
+                {
+                    authentication = true;
+                }
+            }
+
+            //authentication = true; //This is a development stage solution, don't keep!!
             // Here goes AAD authentication
 
 
             if (authentication == true)
             {
-                var nextPage = new NavigationPage(new ListOfQuestionsPage());
+                var nextPage = new NavigationPage(new ListOfQuestionsPage(user));
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
                 await this.Navigation.PushModalAsync(nextPage);
             }
-            
+            else if (authentication == false)
+            {
+                Toast.MakeText(Android.App.Application.Context, "Invalid login credentials!", ToastLength.Long).Show();
+            }
         }
 
         private async void RegisterNewUserButton_Clicked(object sender, EventArgs e)

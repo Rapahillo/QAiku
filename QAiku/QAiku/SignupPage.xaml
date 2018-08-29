@@ -7,13 +7,13 @@
    
     <ContentPage.Content>
         <StackLayout
-            Spacing="20"
+            Spacing="15"
             Padding="20"
             VerticalOptions="Center" >
             <Label FontAttributes="Bold" FontSize="25" TextColor="#003f5a" Text="Register to"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
-            <Image Source="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png" />
+            <Image Source="qaikulogo.png"/>
             <!--<Entry Placeholder="User Name" TextColor="White" PlaceholderColor="White" />-->
             <Entry Placeholder="Email" Keyboard="Email" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
             <Entry Placeholder="Password" IsPassword="True" TextColor="#0c0000" PlaceholderColor="#0c0000"/>

@@ -22,8 +22,8 @@ namespace QAiku
 
         private void SendMessageButton_Clicked(object sender, EventArgs e)
         {
-            var nextPage = new QuestionPage();
-            Navigation.PushAsync(nextPage);
+            //var nextPage = new QuestionPage();
+            //Navigation.PushAsync(nextPage);
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
