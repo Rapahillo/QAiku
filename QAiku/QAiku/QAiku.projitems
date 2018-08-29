@@ -51,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\HttpCalls.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorCter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignupPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -60,6 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserProfilePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AnswerPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
   </ItemGroup>

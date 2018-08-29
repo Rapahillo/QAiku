@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Android.Util;
 using System.Linq;
 using QAiku.Model;
+using System.Windows.Input;
 
 namespace QAiku.ViewModel
 {
@@ -28,6 +29,7 @@ namespace QAiku.ViewModel
                 OnPropertyChanged("Messages");
             }
         }
+        public ICommand ViewThreadCommand { get; private set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -45,10 +47,12 @@ namespace QAiku.ViewModel
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
+            //ViewThreadCommand = new Command(ViewThreadButton_Command);
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
 
         }
 
+ 
 
         public static async Task<ListOfQuestionsPageModel> Update()
         {
@@ -66,7 +70,8 @@ namespace QAiku.ViewModel
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetAllMessagesAsync(); //Once we have user data, replace this with messages sent and received by the user
-            msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            var questions = msgs.Where(m => m.Category == 1);
+            msgs = questions.OrderByDescending(m => m.SendDate).ToList();
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
 
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
