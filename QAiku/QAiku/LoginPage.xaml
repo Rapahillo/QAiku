@@ -14,8 +14,7 @@
             <Label FontAttributes="Bold" FontSize="30" TextColor="#003f5a" Text="Welcome to"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
-            <Image Source="C:\Users\Mikko\Downloads\QAiku-master\QAiku\QAiku.Android\Resources\drawable\qaikulogo.png"/>
-
+            <Image Source="qaikulogo.png" />
 
             <Entry x:Name="UsernameLoginEntry" Placeholder="Username" TextColor="#0c0000" PlaceholderColor="#0c0000" BindingContext="{Binding User}"/>
             <Entry Placeholder="Password" IsPassword="True" TextColor="#0c0000" PlaceholderColor="#0c0000"/>
