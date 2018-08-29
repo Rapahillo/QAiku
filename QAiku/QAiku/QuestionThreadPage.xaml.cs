@@ -19,7 +19,7 @@ namespace QAiku
         private MsgModel _message;
         public QuestionThreadPage (MsgModel message, UserModel user)
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
             User = user;
             Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
             InitializeComponent ();
@@ -45,7 +45,7 @@ namespace QAiku
             Log.Info("QADEBUG", "SendYourAnswer clicked!");
 
             Log.Info("QADEBUG", $"{_message.ToString()}");
-            var nextPage = new AnswerPage(_message);
+            var nextPage = new AnswerPage(_message, User);
             Navigation.PushAsync(nextPage);
 
         }

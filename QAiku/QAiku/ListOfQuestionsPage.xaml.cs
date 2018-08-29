@@ -69,7 +69,7 @@ namespace QAiku
         private async void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             MsgModel msgModel = (MsgModel)e.Item;
-            var nextPage = new QuestionThreadPage(msgModel);
+            var nextPage = new QuestionThreadPage(msgModel, User);
             await Navigation.PushAsync(nextPage);
         }
     }
