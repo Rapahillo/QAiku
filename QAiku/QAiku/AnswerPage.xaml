@@ -14,7 +14,7 @@
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout Padding="25">
-        <Label TextColor="#003f5a" BindingContext="{Binding}"  Text="{Binding Question.Subject}" WidthRequest="100" HeightRequest="50"  Margin="13, 0, 0, -25" FontSize="25"/>
+        <Label TextColor="#003f5a" BindingContext="{Binding Question}"  Text="{Binding Subject}" WidthRequest="100" HeightRequest="50"  Margin="13, 0, 0, -25" FontSize="25"/>
         <Label TextColor="#0c0000" BindingContext="{Binding}"  Text="{Binding Question.Description}" WidthRequest="100" HeightRequest="50" Margin="15, 0, 0, 0" FontSize="18"/>
         <!--<Label TextColor="#0c0000" BindingContext="{Binding Question}"  Text="{Binding SenderId}" WidthRequest="100" HeightRequest="50" Margin="15, 0, 0, 0" FontSize="18"/>
         <Label TextColor="#0c0000" BindingContext="{Binding Question}"  Text="{Binding SendDate}" WidthRequest="100" HeightRequest="50" Margin="15" FontSize="18"/>-->
@@ -25,19 +25,39 @@
 
         <!--<Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="#0c0000" MaxLength="140"  />-->
 
-        <Editor x:Name="Answer" Text="Your answer" Margin="13, 50, 10, -25" TextColor="#0c0000" MaxLength="140"  />
+        <Editor x:Name="Answer" Text="Your answer" Margin="13, 50, 10, -25" AutoSize="TextChanges" TextColor="#0c0000" MaxLength="140"  />
         <Button x:Name="SubmitAnswerButton" Text="Submit your answer" Clicked="SubmitAnswerButton_Clicked" Margin="16, 50, 14, -25"  BackgroundColor="#003f5a" TextColor="White"/>
 
 
         <!--<Button x:Name="ViewAnswersButton" Text="View other answers" Margin="16, 50, 14, -25" BackgroundColor="#003f5a" TextColor="White"/>-->
 
-        <ListView x:Name="AnswerList" RowHeight="100" BindingContext="{Binding AnswerList}"
-      
-        IsGroupingEnabled="false">
+        <ListView x:Name="AnswerList" RowHeight="100" BindingContext="{Binding AnswerList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Subject}"
-                     Detail="{Binding Description}" />
+                    <ViewCell>
+                        <StackLayout Padding="25">
+                            <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Description}" WidthRequest="100" Margin="4, 0, 35, -5" FontSize="20"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>-->
+                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 20,-38, 40" FontSize="10" Grid.Row="0"/>
+                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="5, -98, 0, 0" FontSize="14" Grid.Row="1"/>
+                                <!--<Label x:Name="State" TextColor="#0c0000" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin=" 260, -95, -5, 70" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="2"/>-->
+
+                                <!--<Label x:Name="State" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="End" TextColor="#0c0000" WidthRequest="50" Margin="5, -80, 5, 50" Text="State" BackgroundColor="Red" Grid.Row="2"/>-->
+
+                            </Grid>
+
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

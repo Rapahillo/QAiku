@@ -85,7 +85,7 @@ namespace QAiku.ViewModel
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = new List<MsgModel>() ;
-            List<MsgModel> sent = await call.GetSentMessagesAsync(User.UserId); //Once we have user data, replace this with messages sent and received by the user
+            List<MsgModel> sent = await call.GetSentMessagesAsync(User.UserId); 
             List<MsgModel> received = await call.GetReceivedMessagesAsync(User.UserId);
             //var questions = msgs.Where(m => m.Category == 1);
             foreach (var item in sent)

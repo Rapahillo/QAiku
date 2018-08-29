@@ -16,13 +16,11 @@ namespace QAiku
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
-        public ListOfQuestionsPage()
+        public ListOfQuestionsPage(UserModel user)
         {
-
-            
+            User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
-            
             BindingContext = new ListOfQuestionsPageModel(User);
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
