@@ -66,11 +66,11 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
-
-
-        //private void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-        //    Log.Info("QADEBUG", "QuestionList_ItemTapped klikattu!");
-        //}
+        private async void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            MsgModel msgModel = (MsgModel)e.Item;
+            var nextPage = new QuestionThreadPage(msgModel);
+            await Navigation.PushAsync(nextPage);
+        }
     }
 }

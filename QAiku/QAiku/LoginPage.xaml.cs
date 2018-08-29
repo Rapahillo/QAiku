@@ -23,6 +23,8 @@ namespace QAiku
             userList.Add("mikko@qaiku.com", "Salainen1!");
             userList.Add("jussi@qaiku.com", "Salainen1!");
             userList.Add("ville@qaiku.com", "Salainen1!");
+
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
@@ -39,7 +41,7 @@ namespace QAiku
                 }
             }
 
-            //authentication = true; //This is a development stage solution, don't keep!!
+            authentication = true; //This is a development stage solution, don't keep!!
             // Here goes AAD authentication
 
 
@@ -47,7 +49,7 @@ namespace QAiku
             {
                 var nextPage = new NavigationPage(new ListOfQuestionsPage(user));
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
-
+                Toast.MakeText(Android.App.Application.Context, "Login succesful!", ToastLength.Long).Show();
                 await this.Navigation.PushModalAsync(nextPage);
             }
             else if (authentication == false)
