@@ -16,10 +16,10 @@ namespace QAiku
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
-        public ListOfQuestionsPage(UserModel user)
+        public ListOfQuestionsPage()
         {
 
-            User = user;
+            
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
             
