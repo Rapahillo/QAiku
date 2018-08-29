@@ -45,7 +45,6 @@
                             <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14"/>
                                 
 
-                            <!--<Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 0, 0" CommandParameter="{Binding}"  BindingContext="{Binding}"/>-->
 
                     </StackLayout>
                 </ViewCell>
