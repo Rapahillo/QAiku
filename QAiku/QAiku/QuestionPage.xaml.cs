@@ -15,8 +15,10 @@ namespace QAiku
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuestionPage : ContentPage
     {
-        public QuestionPage ()
+        UserModel User;
+        public QuestionPage (UserModel user)
         {
+            User = user;
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
 
@@ -51,7 +53,7 @@ namespace QAiku
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
                 
-                var nextPage = new NavigationPage(new ListOfQuestionsPage());
+                var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
                 //var nextPage = new ListOfQuestionsPage();
                 await this.Navigation.PushModalAsync(nextPage);
             }
