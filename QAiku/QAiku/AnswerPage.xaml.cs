@@ -31,7 +31,7 @@ namespace QAiku
             User = user;
             InitializeComponent();
 
-            //BindingContext = new QuestionThreadPageModel(message);
+            BindingContext = new QuestionThreadPageModel(message, user);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
         }
 

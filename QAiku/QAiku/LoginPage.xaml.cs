@@ -47,7 +47,7 @@ namespace QAiku
 
             if (authentication == true)
             {
-                var nextPage = new NavigationPage(new ListOfQuestionsPage());
+                var nextPage = new NavigationPage(new ListOfQuestionsPage(user));
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
                 Toast.MakeText(Android.App.Application.Context, "Login succesful!", ToastLength.Long).Show();
                 await this.Navigation.PushModalAsync(nextPage);
