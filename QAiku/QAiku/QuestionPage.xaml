@@ -23,8 +23,8 @@
             <!--VerticalOptions="Center" >-->
             <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
 
-            <Editor x:Name="Question" Text="Question" TextColor="#0c0000" MaxLength="140" BindingContext="{Binding Msg}" />
-            <Editor x:Name="Description" Text="Description" TextColor="#0c0000" BindingContext="{Binding Msg}" />
+            <Editor x:Name="Question" Text="Question" TextColor="#0c0000" MaxLength="140" AutoSize="TextChanges" BindingContext="{Binding Msg}" />
+            <Editor x:Name="Description" Text="Description" AutoSize="TextChanges" TextColor="#0c0000" BindingContext="{Binding Msg}" />
 
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="#0c0000" PlaceholderColor="#0c0000" BindingContext="{Binding Msg}"/>
             <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#007a7a" Clicked="SendQuestionButton_Clicked"/>
