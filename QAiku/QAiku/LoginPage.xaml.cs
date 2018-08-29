@@ -39,13 +39,13 @@ namespace QAiku
                 }
             }
 
-            //authentication = true; //This is a development stage solution, don't keep!!
+            authentication = true; //This is a development stage solution, don't keep!!
             // Here goes AAD authentication
 
 
             if (authentication == true)
             {
-                var nextPage = new NavigationPage(new ListOfQuestionsPage(user));
+                var nextPage = new NavigationPage(new ListOfQuestionsPage());
                 //var nextPage = new NavigationPage(new ListOfAnswersPage());
 
                 await this.Navigation.PushModalAsync(nextPage);
