@@ -72,5 +72,6 @@ namespace QAiku
             var nextPage = new QuestionThreadPage(msgModel, User);
             await Navigation.PushAsync(nextPage);
         }
+   
     }
 }

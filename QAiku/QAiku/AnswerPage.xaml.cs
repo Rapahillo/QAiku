@@ -39,9 +39,13 @@ namespace QAiku
         {
             MsgModel msg = new MsgModel();
             msg.Subject = $"Re: {_message.Subject}";
-            msg.Description = Answer.Text;
+            msg.Description = Answer.Text.Trim();
+            //msg.Description = Answer.Text;
             msg.SenderId = User.UserId;
-
+            if (_message.RecipientsIdCsv.Contains(_message.SenderId))
+            {
+                msg.RecipientsIdCsv = _message.RecipientsIdCsv;
+            }
             msg.RecipientsIdCsv = $"{_message.RecipientsIdCsv};{msg.SenderId}";
             msg.SendDate = DateTime.Now.ToLocalTime() ;
             msg.Category = 2;
@@ -69,5 +73,11 @@ namespace QAiku
                 //await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
             }
         }
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new UserProfilePage();
+            Navigation.PushAsync(nextPage);
+        }
+
     }
 }

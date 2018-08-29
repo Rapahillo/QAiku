@@ -5,6 +5,12 @@
              xmlns:local="clr-namespace:QAiku.SharedFunctionalities"
              x:Class="QAiku.ListOfQuestionsPage"
              BackgroundColor="#ebd9c8">
+    <ContentPage.Resources>
+        <local:StateColorCter x:Key="StateToColorConverter" />
+        <local:StateStringCter x:Key="StateToStringConverter" />
+
+
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
                      Icon="qaikulogo.png"
@@ -15,12 +21,6 @@
                      Priority="1"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Resources>
-        <local:StateColorCter x:Key="StateToColorConverter" />
-        <local:StateStringCter x:Key="StateToStringConverter" />
-
-
-    </ContentPage.Resources>
 
     <StackLayout>
 

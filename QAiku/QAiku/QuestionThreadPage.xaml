@@ -10,7 +10,16 @@
         <local:StateStringCter x:Key="StateToStringConverter" />
 
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems BackgroundColor="#de6600" >
+        <ToolbarItem Text="Logo"
+                     Icon="qaikulogo.png"
+                     Priority="0"/>
 
+        <ToolbarItem Text="Settings"
+                     Icon="settings_icon.png"
+                     Priority="1"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Padding="25">
 
 

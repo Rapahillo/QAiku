@@ -32,7 +32,7 @@ namespace QAiku
         {
             MsgModel msg = new MsgModel();
             msg.Subject = Question.Text;
-            msg.Description = Description.Text;
+            msg.Description = Description.Text.Trim();
             msg.SenderId = User.UserId;
             msg.RecipientsIdCsv = ChooseRecipient.Text;
             msg.SendDate = DateTime.Now;

@@ -16,7 +16,7 @@ namespace QAiku.SharedFunctionalities
                 case State.Response:
                     return "Response";
                 case State.Unanswered:
-                    return "Unanswered";
+                    return "Open";
                 case State.Partial:
                     return "Partial";
                 case State.Answered:

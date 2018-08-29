@@ -90,23 +90,60 @@ namespace QAiku.ViewModel
             //var questions = msgs.Where(m => m.Category == 1);
             foreach (var item in sent)
             {
-
+                if (item.RecipientsIdCsv.Contains(User.UserId))
+                {
+                    continue;
+                }
+                if (item.Category==1)
+                {
                 msgs.Add(item);
+
+                }
+                
+               
             }
             foreach (var item in received)
             {
+                if (item.SenderId == User.UserId)
+                {
+                    continue;
+                }
                 List<MsgModel> thread = await call.GetThreadAsync(item.ThreadId);
                 MsgModel originalquestion = thread[0];
                 msgs.Add(originalquestion);
 
 
             }
+            IEnumerable<MsgModel> distinct = msgs.Distinct(new MessageEqualityComparer());
+            msgs = distinct.ToList();
             msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
 
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
 
 
         }
+    }
+    class MessageEqualityComparer : IEqualityComparer<MsgModel>
+    {
+        public bool Equals(MsgModel x, MsgModel y)
+        {
+            if ((object)x == null && (object)y == null)
+            {
+                return true;
+            }
+            if ((object)x == null || (object)y == null)
+            {
+                return false;
+            }
+            return x.id == y.id && x.Subject == y.Subject;
+        }
+
+        public int GetHashCode(MsgModel obj)
+        {
+            return obj.GetHashCode();
+        }
+
     }
 }

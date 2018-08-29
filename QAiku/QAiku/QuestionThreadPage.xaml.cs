@@ -72,5 +72,11 @@ namespace QAiku
 
 
         }
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new UserProfilePage();
+            Navigation.PushAsync(nextPage);
+        }
+
     }
 }
