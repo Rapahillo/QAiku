@@ -41,7 +41,7 @@ namespace QAiku
         private async void RegisterNewUserButton_Clicked(object sender, EventArgs e)
         {
             var nextPage = new NavigationPage(new SignupPage());
-            await this.Navigation.PushAsync(nextPage);
+            await this.Navigation.PushModalAsync(nextPage);
         }
     }
 }

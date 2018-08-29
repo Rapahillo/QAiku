@@ -17,7 +17,9 @@ namespace QAiku
     {
         public ListOfQuestionsPage()
         {
+
             NavigationPage.SetHasNavigationBar(this, false);
+
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
             

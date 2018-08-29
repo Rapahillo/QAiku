@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using QAiku.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Android.Widget;
 
 namespace QAiku
 {
@@ -42,8 +43,10 @@ namespace QAiku
                 string Url = "http://qaiku.azurewebsites.net/api/messages/post";
                 var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
-                Console.WriteLine(response.Content.ReadAsStringAsync());
-                await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
+                //Console.WriteLine(response.Content.ReadAsStringAsync());
+                //await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
+                Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long);
+                
                 Question.Text = "Question";
                 Description.Text = "Description";
                 ChooseRecipient.Text = "";
@@ -54,6 +57,7 @@ namespace QAiku
             }
             catch (Exception)
             {
+                //await Toast.Ma
                 await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
             }
         }
