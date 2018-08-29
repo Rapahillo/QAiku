@@ -60,7 +60,13 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
-  
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new UserProfilePage();
+            Navigation.PushAsync(nextPage);
+        }
+
+
 
         //private void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         //{
