@@ -14,16 +14,31 @@ namespace QAiku.ViewModel
 {
     class QuestionThreadPageModel: INotifyPropertyChanged
     {
-        private ObservableCollection<MsgModel> _messages;
-        public ObservableCollection<MsgModel> Messages {
-            get { return _messages; }
-            set {
-                if (_messages == value)
+        private MsgModel _question;
+
+        public MsgModel Question
+        {
+            get { return _question; }
+            set
+            {
+                if (_question == value)
                 {
                     return;
                 }
-                _messages = value;
-                OnPropertyChanged("Messages");
+                _question = value;
+                OnPropertyChanged("Question");
+            }
+        }
+        private ObservableCollection<MsgModel> _answerlist;
+        public ObservableCollection<MsgModel> AnswerList {
+            get { return _answerlist; }
+            set {
+                if (_answerlist == value)
+                {
+                    return;
+                }
+                _answerlist = value;
+                OnPropertyChanged("AnswerList");
             } }
 
 
@@ -38,35 +53,39 @@ namespace QAiku.ViewModel
         }
         //public MsgModel MsgModel { get; set; }
 
-        public QuestionThreadPageModel()
+        public QuestionThreadPageModel(MsgModel message)
         {
-            Log.Info("QTPM", "QuestionThreadPageModelin konstruktori käynnistyi");
-            Messages = new ObservableCollection<MsgModel>();
-            Log.Info("QTPM", "QuestionThreadPageModelin konstruktori valmistui");
+            Log.Info("QADEBUG", "QuestionThreadPageModelin konstruktori käynnistyi");
+            _question = message;
+            AnswerList = new ObservableCollection<MsgModel>();
+            Log.Info("QADEBUG", "QuestionThreadPageModelin konstruktori valmistui");
 
         }
 
 
-        public static async Task<QuestionThreadPageModel> Update()
+        public static async Task<QuestionThreadPageModel> Update(MsgModel message)
         {
-            Log.Info("QTPM", "QuestionThreadPageModelin update käynnistyi");
-            var questionThreadPageModel = new QuestionThreadPageModel();
-            await questionThreadPageModel.Initialize();
-            Log.Info("QTPM", "QuestionThreadPageModelin update valmistui");
+            Log.Info("QADEBUG", "QuestionThreadPageModelin update käynnistyi");
+            var questionThreadPageModel = new QuestionThreadPageModel(message);
+            string threadid = message.ThreadId;
+            await questionThreadPageModel.Initialize(threadid);
+            Log.Info("QADEBUG", "QuestionThreadPageModelin update valmistui");
             return questionThreadPageModel;
 
 
         }
 
-        private async Task Initialize()
+        private async Task Initialize(string threadid)
         {
-            Log.Info("QTPM", "QTPM Initialize-metodi käynnistyi");
+            Log.Info("QADEBUG", "QuestionThreadPageModelin Initialize-metodi käynnistyi");
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
-            List<MsgModel> msgs = await call.GetAllMessagesAsync();
-
-            _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
-            Log.Info("QTPM", $"Initialize valmistui, tuloksena {msgs[0].Subject} viesti");
+            List<MsgModel> msgs = await call.GetThreadAsync(threadid);
+            _question = msgs[0];
+            Log.Info("qadebug", $"{_question.ToString()}");
+            msgs.RemoveAt(0);
+            _answerlist = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
+            Log.Info("QADEBUG", $"GetThreadInitialize valmistui!");
 
 
         }

@@ -35,5 +35,10 @@ namespace QAiku
         {
             // Handle when your app resumes
         }
+
+        private void ViewThreadButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

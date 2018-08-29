@@ -22,7 +22,7 @@
                         <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
 
-                    <Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 270, 0" BindingContext="{Binding .}"/>
+                    <Button x:Name="ViewThreadButton" Text="View" BackgroundColor="#003f5a" Margin="0, -70, 180, -60" BindingContext="{Binding .}"/>
 
                 </StackLayout>
             </ViewCell>
