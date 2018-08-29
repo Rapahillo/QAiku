@@ -15,15 +15,16 @@ namespace QAiku
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuestionThreadPage : ContentPage
     {
+        UserModel User;
         private MsgModel _message;
-        public QuestionThreadPage (MsgModel message)
+        public QuestionThreadPage (MsgModel message, UserModel user)
         {
             NavigationPage.SetHasNavigationBar(this, false);
-
+            User = user;
             Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
             InitializeComponent ();
             _message = message;
-            BindingContext = new QuestionThreadPageModel(message);
+            BindingContext = new QuestionThreadPageModel(message, user);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
 
 
@@ -34,7 +35,7 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "Question Thread Pagen OnAppearing käynnistyi!");
-            BindingContext = await QuestionThreadPageModel.Update(_message);
+            BindingContext = await QuestionThreadPageModel.Update(_message, User);
             Log.Info("QADEBUG", "Question Thread Pagen OnAppearing valmistui!");
 
         }
@@ -66,7 +67,7 @@ namespace QAiku
             MsgModel updated = await call.PutStateAsync(_message.id, _message);
             Log.Info("qadebug", $"Statebutton clicked, {updated.State.ToString()} after click");
             _message = updated;
-            BindingContext = await QuestionThreadPageModel.Update(_message);
+            BindingContext = await QuestionThreadPageModel.Update(_message, User);
 
 
 

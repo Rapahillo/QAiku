@@ -28,7 +28,7 @@ namespace QAiku
             Log.Info("QADEBUG", "AnswerPagen konstruktori käynnistyi");
             InitializeComponent();
             _message = message;
-            BindingContext = new QuestionThreadPageModel(message);
+            //BindingContext = new QuestionThreadPageModel(message);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
         }
 
@@ -56,9 +56,9 @@ namespace QAiku
                 //Subject.Text = "Subject";
                 Answer.Text = "Your answer";
               
-                var nextPage = new NavigationPage(new QuestionThreadPage(_message));
+                //var nextPage = new NavigationPage(new QuestionThreadPage(_message));
 
-                await this.Navigation.PushAsync(nextPage);
+                //await this.Navigation.PushAsync(nextPage);
             }
             catch (Exception)
             {
