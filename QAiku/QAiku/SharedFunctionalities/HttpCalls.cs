@@ -80,5 +80,19 @@ namespace QAiku.SharedFunctionalities
             }
             return Messages;
         }
+
+        public async Task<MsgModel> PutStateAsync(string id, MsgModel msg)
+        {
+            string resturl = baseurl + $"PutState?documentid={id}";
+            var content = JsonConvert.SerializeObject(msg);
+            var response = await httpClient.PutAsync(resturl, new StringContent(content, Encoding.UTF8, "application/json"));
+            MsgModel Updated = msg;
+            if (response.IsSuccessStatusCode)
+            {
+                var updated = await response.Content.ReadAsStringAsync();
+                Updated = JsonConvert.DeserializeObject<MsgModel>(updated);
+            }
+            return Updated;
+        }
     }
 }
