@@ -21,6 +21,16 @@ namespace QAiku
         HttpClient httpClient = new HttpClient();
         UserModel User;
 
+        public AnswerPage()
+        {
+            _message = new MsgModel { Subject = "something", SendDate = DateTime.Now, SenderId = User.UserId };
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
+            InitializeComponent();
+
+            BindingContext = new QuestionThreadPageModel(_message, User);
+        }
+        
         public AnswerPage (MsgModel message, UserModel user)
 		{
 
