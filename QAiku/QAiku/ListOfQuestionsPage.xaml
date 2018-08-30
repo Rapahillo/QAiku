@@ -26,11 +26,11 @@
 
  
     <StackLayout>
-        <!--<Image  VerticalOptions="CenterAndExpand" 
+        <Image  VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 IsVisible="{Binding ToggleVisibility, Converter={StaticResource InverseBoolConverter}}">
             
-        </Image>-->
+        </Image>
 
         <ListView x:Name="QuestionList" RowHeight="180" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>

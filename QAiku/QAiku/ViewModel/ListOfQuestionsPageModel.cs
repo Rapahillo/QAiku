@@ -131,7 +131,7 @@ namespace QAiku.ViewModel
 
             }
             
-            msgs = msgs.OrderByDescending(m => m.State).ToList();
+            msgs = msgs.OrderBy(m => m.State).ToList();
 
             
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
