@@ -53,7 +53,7 @@ namespace QAiku
                 ChooseRecipient.Text = "";
                 ChooseRecipient.Placeholder = "Recipient";
                 
-                var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+                var nextPage = new NavigationPage(new ListOfQuestionsPage(/*User*/));
                 //var nextPage = new ListOfQuestionsPage();
                 await this.Navigation.PushModalAsync(nextPage);
             }
