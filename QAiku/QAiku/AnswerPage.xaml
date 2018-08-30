@@ -31,7 +31,7 @@
 
         <!--<Button x:Name="ViewAnswersButton" Text="View other answers" Margin="16, 50, 14, -25" BackgroundColor="#003f5a" TextColor="White"/>-->
 
-        <ListView x:Name="AnswerList" RowHeight="100" BindingContext="{Binding AnswerList}">
+        <ListView x:Name="AnswerList" RowHeight="100" BindingContext="{Binding AnswerList}" ItemTapped="AnswerList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
