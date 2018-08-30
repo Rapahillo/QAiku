@@ -27,7 +27,7 @@
             <Editor x:Name="Description" Text="Description" AutoSize="TextChanges" TextColor="#0c0000" BindingContext="{Binding Msg}" />
 
             <Entry x:Name="ChooseRecipient" Placeholder="Recipient" TextColor="#0c0000" PlaceholderColor="#0c0000" BindingContext="{Binding Msg}"/>
-            <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#007a7a" Clicked="SendQuestionButton_Clicked"/>
+            <Button x:Name="SendQuestionButton" Text="Send" TextColor="White" BackgroundColor="#003f5a" Clicked="SendQuestionButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

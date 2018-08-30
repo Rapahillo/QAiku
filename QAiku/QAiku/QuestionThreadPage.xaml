@@ -64,7 +64,7 @@
         </ListView>
 
 
-        <Button x:Name="SendYourAnswer" Text="Send your answer" Margin="0, 0, -10, -5" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="SendYourAnswer_Clicked" />
+        <Button x:Name="SendYourAnswer" Text="Answer" Margin="0, 0, -10, -5" HorizontalOptions="End" TextColor="White" BackgroundColor="#003f5a" Clicked="SendYourAnswer_Clicked" />
         
     </StackLayout>
     

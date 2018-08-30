@@ -63,7 +63,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 20, 20" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="NewMessageButton_Clicked" />
+        <Button x:Name="NewMessageButton" Text="New question" Margin="0, 0, 20, 20" HorizontalOptions="End" TextColor="White" BackgroundColor="#003f5a" Clicked="NewMessageButton_Clicked" />
 
     </StackLayout>
     
