@@ -32,30 +32,25 @@
         </Button>
 
 
-        <ListView x:Name="AnswerList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTapped="AnswerList_ItemTapped">
+        <ListView x:Name="AnswerList" RowHeight="150" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTapped="AnswerList_ItemTapped">
             <ListView.ItemTemplate>
                 
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Padding="25">
+                    <StackLayout>
                         <!--<Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>-->
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <!--<Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>-->
-                            <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
-                            <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
+                                </Grid.RowDefinitions>
+                            
+                            <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" Margin="15, -5, 0, 0" FontSize="16" Grid.Row="1"/>
+                            <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" Margin="15, 0, 0, 0" FontSize="12" Grid.Row="2"/>
+                            <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" Margin="15, 0,-60, 50" FontSize="10" Grid.Row="3"/>
                         </Grid>
-                            <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14"/>
                                 
-
 
                     </StackLayout>
                 </ViewCell>
