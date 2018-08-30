@@ -76,8 +76,8 @@ namespace QAiku
 
         private void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
-            //var nextPage = new ListOfQuestionsPage(User);
-            //Navigation.PushAsync(nextPage);
+            var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+            Navigation.PushAsync(nextPage);
         }
     }
 }

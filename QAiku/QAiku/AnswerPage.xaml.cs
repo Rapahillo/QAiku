@@ -59,9 +59,7 @@ namespace QAiku
                 Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
                 Answer.Text = "Your answer";
 
-                var nextPage = new NavigationPage(new QuestionThreadPage(_message, User));
-
-                await this.Navigation.PushAsync(nextPage);
+                await this.Navigation.PopAsync();
             }
             catch (Exception)
             {
@@ -79,6 +77,12 @@ namespace QAiku
             MsgModel msgModel = (MsgModel)e.Item;
             var nextPage = new ShowSingleAnswer(msgModel, User);
             await Navigation.PushAsync(nextPage);
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+            Navigation.PushModalAsync(nextPage);
         }
     }
 }

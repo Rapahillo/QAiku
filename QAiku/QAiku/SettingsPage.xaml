@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.SettingsPage"
              BackgroundColor="#e9edda">
-    
-        <StackLayout Padding="50">
+    <ContentPage.ToolbarItems BackgroundColor="#de6600" >
+        <ToolbarItem Text="Logo"
+                     Icon="qaikulogo.png"
+                     Priority="0"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="50">
 
         <Button x:Name="EditProfileButton" TextColor="#0c0000" Text="Edit Profile" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="EditProfileButton_Clicked" />
         <Button x:Name="ChangePasswordButton" TextColor="#0c0000" Text="Change Password" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="ChangePasswordButton_Clicked"/>
@@ -16,11 +21,11 @@
         <Button x:Name="TermsOfServiceButton" TextColor="#0c0000" Text="Terms of Service" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="TermsOfServiceButton_Clicked"/>
         <Button x:Name="GiveFeedbackButton" TextColor="#0c0000" Text="Give Feedback" BackgroundColor="Transparent" WidthRequest="150" Margin="5" FontSize="16" HorizontalOptions="Fill" Clicked="GiveFeedbackButton_Clicked"/>
         <Button x:Name="SignOutButton" TextColor="White" Text="Sign Out" BackgroundColor="#007a7a" WidthRequest="180" Margin="30" FontSize="16" HorizontalOptions="Fill" Clicked="SignOutButton_Clicked"/>
-        
+
     </StackLayout>
 
-    
-        
-    
+
+
+
 
 </ContentPage>
