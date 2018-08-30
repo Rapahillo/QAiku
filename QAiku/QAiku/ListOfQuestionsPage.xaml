@@ -29,7 +29,7 @@
         <Image x:Name="Qaikulogo" VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 Source="qaikulogo.png">
-            
+                
         </Image>
 
         <ListView x:Name="QuestionList" RowHeight="180" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
