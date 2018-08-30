@@ -16,17 +16,24 @@ namespace QAiku
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
+
+        public ListOfQuestionsPage()
+        {
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
+            InitializeComponent();
+            BindingContext = new ListOfQuestionsPageModel(User);
+        }
+
         public ListOfQuestionsPage(UserModel user)
         {
             User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
-
-            BindingContext = new ListOfQuestionsPageModel(User);
+            Qaikulogo.IsVisible = true;
             QuestionList.IsVisible = false;
             NewMessageButton.IsVisible = false;
-            Qaikuspinner.IsVisible = true;
-
+            BindingContext = new ListOfQuestionsPageModel(User);
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
@@ -34,23 +41,16 @@ namespace QAiku
         }
         protected async override void OnAppearing()
         {
-            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
+            Qaikulogo.IsVisible = true;
             QuestionList.IsVisible = false;
             NewMessageButton.IsVisible = false;
-            Qaikuspinner.IsVisible = true;
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
 
-            //while (BindingContext==null)
-            //{
-            //    await Qaikuspinner.RotateTo(360, 800, Easing.Linear);
-            //    await Qaikuspinner.RotateTo(0, 0); 
-            //}
             BindingContext = await ListOfQuestionsPageModel.Update(User);
-            Qaikuspinner.IsVisible = false;
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
+            Qaikulogo.IsVisible = false;
             QuestionList.IsVisible = true;
             NewMessageButton.IsVisible = true;
-
-            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
-
         }
    
 

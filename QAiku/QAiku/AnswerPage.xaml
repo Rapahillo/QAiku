@@ -2,11 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QAiku.AnswerPage"
-             BackgroundColor="#ebd9c8">
+             BackgroundColor="#e9edda">
     <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
                      Icon="qaikulogo.png"
-                     Priority="0"/>
+                     Priority="0"
+                     Clicked="ToolbarItem_Clicked_1"/>
 
         <ToolbarItem Text="Settings"
                      Icon="settings_icon.png"
@@ -20,13 +21,10 @@
         <Label TextColor="#0c0000" BindingContext="{Binding Question}"  Text="{Binding SendDate}" WidthRequest="100" HeightRequest="50" Margin="15" FontSize="18"/>-->
 
 
-
-
-
         <!--<Editor x:Name="Subject" Text="Subject" Margin="13, 20, 10, -25" TextColor="#0c0000" MaxLength="140"  />-->
 
-        <Editor x:Name="Answer" Text="Your answer" Margin="13, 50, 10, -25" AutoSize="TextChanges" TextColor="#0c0000" MaxLength="140"  />
-        <Button x:Name="SubmitAnswerButton" Text="Submit your answer" Clicked="SubmitAnswerButton_Clicked" Margin="16, 50, 14, -25"  BackgroundColor="#003f5a" TextColor="White"/>
+        <Editor x:Name="Answer" Text="Your answer"  Margin="13, 50, 10, -25" AutoSize="TextChanges" TextColor="#0c0000" MaxLength="300"  />
+        <Button x:Name="SubmitAnswerButton" Text="Answer" Clicked="SubmitAnswerButton_Clicked" Margin="16, 50, 14, -25"  BackgroundColor="#003f5a" TextColor="White"/>
 
 
         <!--<Button x:Name="ViewAnswersButton" Text="View other answers" Margin="16, 50, 14, -25" BackgroundColor="#003f5a" TextColor="White"/>-->
@@ -62,7 +60,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="SendAnswerButton" Text="Send Answer" Margin="0, 0, -5, -5" HorizontalOptions="End" BackgroundColor="#007a7a" />
+        <!--<Button x:Name="SendAnswerButton" Text="Send Answer" Margin="0, 0, -5, -5" HorizontalOptions="End" BackgroundColor="#007a7a" />-->
     </StackLayout>
     
 </ContentPage>
