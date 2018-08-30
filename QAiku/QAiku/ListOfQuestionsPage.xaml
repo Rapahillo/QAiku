@@ -26,9 +26,9 @@
 
  
     <StackLayout>
-        <Image  VerticalOptions="CenterAndExpand" 
+        <Image x:Name="Qaikulogo" VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
-                IsVisible="{Binding ToggleVisibility, Converter={StaticResource InverseBoolConverter}}">
+                Source="qaikulogo.png">
             
         </Image>
 
