@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QAiku.ShowSingleAnswer">
+    <ContentPage.ToolbarItems BackgroundColor="#de6600" >
+        <ToolbarItem Text="Logo"
+                     Icon="qaikulogo.png"
+                     Priority="0"/>
+
+        <ToolbarItem Text="Settings"
+                     Icon="settings_icon.png"
+                     Priority="1"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="25">
+
+
+        <Label  BindingContext="{Binding Question}"  Text="{Binding Subject}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15" FontSize="20"/>
+
+        <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15, -50, 0, 0" FontSize="16"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
+    </StackLayout>
+</ContentPage>

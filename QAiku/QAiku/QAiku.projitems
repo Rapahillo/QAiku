@@ -57,6 +57,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\IUserInformation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateColorCter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedFunctionalities\StateStringCter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShowSingleAnswer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SignupPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,6 +73,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfQuestionsPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\LoadingPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuestionThreadPageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ShowSingleAnswerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoginPage.xaml">
@@ -133,6 +137,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoadingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ShowSingleAnswer.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

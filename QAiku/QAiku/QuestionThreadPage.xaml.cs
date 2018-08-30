@@ -78,5 +78,13 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
+        private async void AnswerList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+           
+                MsgModel msgModel = (MsgModel)e.Item;
+                var nextPage = new QuestionThreadPage(msgModel, User);
+                await Navigation.PushAsync(nextPage);
+            
+        }
     }
 }
