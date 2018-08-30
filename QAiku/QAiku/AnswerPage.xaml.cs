@@ -14,15 +14,15 @@ using Android.Widget;
 
 namespace QAiku
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AnswerPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AnswerPage : ContentPage
+    {
         private MsgModel _message;
         HttpClient httpClient = new HttpClient();
         UserModel User;
 
-        public AnswerPage (MsgModel message, UserModel user)
-		{
+        public AnswerPage(MsgModel message, UserModel user)
+        {
 
             //NavigationPage.SetHasNavigationBar(this, false);
 
@@ -45,7 +45,7 @@ namespace QAiku
                 msg.RecipientsIdCsv = _message.RecipientsIdCsv;
             }
             msg.RecipientsIdCsv = $"{_message.RecipientsIdCsv};{msg.SenderId}";
-            msg.SendDate = DateTime.Now.ToLocalTime() ;
+            msg.SendDate = DateTime.Now.ToLocalTime();
             msg.Category = 2;
             msg.Favorite = true;
             msg.State = 0;
