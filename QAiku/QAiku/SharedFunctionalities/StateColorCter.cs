@@ -21,7 +21,7 @@ namespace QAiku.SharedFunctionalities
                 case State.Partial:
                     return "#fea02f";
                 case State.Answered:
-                    return "#ebd9c8";
+                    return "rgba(0, 122, 122, 0.5)";
                 default:
                     break;
             }
