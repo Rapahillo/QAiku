@@ -14,15 +14,25 @@ using Android.Widget;
 
 namespace QAiku
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AnswerPage : ContentPage
-    {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class AnswerPage : ContentPage
+	{
         private MsgModel _message;
         HttpClient httpClient = new HttpClient();
         UserModel User;
 
-        public AnswerPage(MsgModel message, UserModel user)
+        public AnswerPage()
         {
+            _message = new MsgModel { Subject = "something", SendDate = DateTime.Now, SenderId = User.UserId };
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
+            InitializeComponent();
+
+            BindingContext = new QuestionThreadPageModel(_message, User);
+        }
+        
+        public AnswerPage (MsgModel message, UserModel user)
+		{
 
             //NavigationPage.SetHasNavigationBar(this, false);
 
@@ -45,7 +55,7 @@ namespace QAiku
                 msg.RecipientsIdCsv = _message.RecipientsIdCsv;
             }
             msg.RecipientsIdCsv = $"{_message.RecipientsIdCsv};{msg.SenderId}";
-            msg.SendDate = DateTime.Now.ToLocalTime();
+            msg.SendDate = DateTime.Now.ToLocalTime() ;
             msg.Category = 2;
             msg.Favorite = true;
             msg.State = 0;
@@ -56,10 +66,7 @@ namespace QAiku
                 var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
-                if (response.IsSuccessStatusCode)
-                {
-                    Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
-                }
+                Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
                 Answer.Text = "Your answer";
 
                 await this.Navigation.PopAsync();

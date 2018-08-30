@@ -89,11 +89,11 @@ namespace QAiku.ViewModel
             }
             AnswerList = new ObservableCollection<MsgModel>();
 
-            if (message.Subject == "something")
-            {
-                AnswerList.Add(new MsgModel { SendDate = DateTime.Now, SenderId = "Answer", Description = "BSDKBSIK GKGKAKGA KKKKKKK" });
-            }
-            Log.Info("QADEBUG", "QuestionThreadPageModelin konstruktori valmistui");
+            //if (message.Subject == "something")
+            //{
+            //    AnswerList.Add(new MsgModel { SendDate = DateTime.Now, SenderId = "Answer", Description = "BSDKBSIK GKGKAKGA KKKKKKK" });
+            //}
+            //Log.Info("QADEBUG", "QuestionThreadPageModelin konstruktori valmistui");
 
         }
 
