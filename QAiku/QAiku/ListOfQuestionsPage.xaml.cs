@@ -17,24 +17,46 @@ namespace QAiku
     {
         UserModel User;
 
-        public ListOfQuestionsPage(UserModel user)
+        public ListOfQuestionsPage()
         {
-            User = user;
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
             InitializeComponent();
             BindingContext = new ListOfQuestionsPageModel(User);
         }
+
+        public ListOfQuestionsPage(UserModel user)
+        {
+            User = user;
+            Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
+            InitializeComponent();
+            BindingContext = new ListOfQuestionsPageModel(User);
+            //ViewThreadButton.Clicked += ViewThreadButton_Clicked
+
+
+            Log.Info("QADEBUG", $"ListOfQuestionsPagen konstruktori valmistui");
+        }
         protected async override void OnAppearing()
         {
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
             BindingContext = await ListOfQuestionsPageModel.Update(User);
-        }
+            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
+        }
+   
 
 
         private void ViewThreadButton_Clicked(object sender, EventArgs e)
         {
+            Log.Info("QADEBUG", "Viewthreadbutton clicked!");
             var item = (sender as Button).CommandParameter as MsgModel;
+
+            Log.Info("QADEBUG", $"{item.ToString()}");
             var nextPage = new QuestionThreadPage(item, User);
             Navigation.PushAsync(nextPage);
+
+
+
         }
 
 
@@ -57,6 +79,6 @@ namespace QAiku
             var nextPage = new QuestionThreadPage(msgModel, User);
             await Navigation.PushAsync(nextPage);
         }
-
+   
     }
 }

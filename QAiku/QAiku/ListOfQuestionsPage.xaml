@@ -26,13 +26,13 @@
 
  
     <StackLayout>
-        <Image  VerticalOptions="CenterAndExpand" 
+        <!--<Image  VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 IsVisible="{Binding ToggleVisibility, Converter={StaticResource InverseBoolConverter}}">
             
-        </Image>
+        </Image>-->
 
-        <ListView IsVisible="{Binding ToggleVisibility}" x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
+        <ListView x:Name="QuestionList" RowHeight="180" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -49,9 +49,9 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>-->
-                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 20,-38, 40" FontSize="10" Grid.Row="0"/>
-                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="5, -98, 0, 0" FontSize="14" Grid.Row="1"/>
-                                <Label x:Name="State" TextColor="#0c0000" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin=" 260, -95, -5, 70" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="2"/>
+                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 40,-38, 40" FontSize="12" Grid.Row="0"/>
+                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="5, -150, 0, 0" FontSize="16" Grid.Row="1"/>
+                                <Label x:Name="State" TextColor="#0c0000" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin=" 260, -100, -5, 70" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="2"/>
                                 
                                 <!--<Label x:Name="State" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="End" TextColor="#0c0000" WidthRequest="50" Margin="5, -80, 5, 50" Text="State" BackgroundColor="Red" Grid.Row="2"/>-->
 
