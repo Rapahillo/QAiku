@@ -22,7 +22,7 @@ namespace QAiku
             User = new UserModel();
             User.UserId = "kovakoodattuLahettaja@questionpage.fi";
             InitializeComponent();
-            BindingContext = new QuestionThreadPageModel(User);
+            BindingContext = new ListOfQuestionsPageModel(User);
         }
 
         public ListOfQuestionsPage(UserModel user)
@@ -30,7 +30,7 @@ namespace QAiku
             User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
-            BindingContext = new QuestionThreadPageModel(User);
+            BindingContext = new ListOfQuestionsPageModel(User);
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
@@ -39,7 +39,7 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
-            BindingContext = await QuestionThreadPageModel.Update(User);
+            BindingContext = await ListOfQuestionsPageModel.Update(User);
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }

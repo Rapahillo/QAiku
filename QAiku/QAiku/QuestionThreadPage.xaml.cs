@@ -23,7 +23,7 @@ namespace QAiku
             User = new UserModel();
             User.UserId = "kovakoodattuLahettaja@questionpage.fi";
             InitializeComponent();
-            BindingContext = new QuestionThreadPageModel(User);
+            BindingContext = new QuestionThreadPageModel(_message, User);
         }
 
         public QuestionThreadPage (MsgModel message, UserModel user)
