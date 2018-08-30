@@ -47,9 +47,9 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>-->
-                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0" Grid.Column="0"/>
-                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0" Grid.Column="1"/>
-                                <Label x:Name="State" TextColor="#0c0000" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="0" Grid.Column="2"/>
+                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0"/>
+                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0"/>
+                                <Label x:Name="State" TextColor="#0c0000" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="0"/>
 
                             </Grid>
                             <!--<Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 0, 0" CommandParameter="{Binding}"  BindingContext="{Binding}" Clicked="ViewThreadButton_Clicked"/>-->
