@@ -11,12 +11,15 @@ using Android.Util;
 using Newtonsoft.Json;
 using System.Net.Http;
 using Android.Widget;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace QAiku
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AnswerPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AnswerPage : ContentPage
+    {
         private MsgModel _message;
         HttpClient httpClient = new HttpClient();
         UserModel User;
@@ -30,9 +33,9 @@ namespace QAiku
 
             BindingContext = new QuestionThreadPageModel(_message, User);
         }
-        
-        public AnswerPage (MsgModel message, UserModel user)
-		{
+
+        public AnswerPage(MsgModel message, UserModel user)
+        {
 
             //NavigationPage.SetHasNavigationBar(this, false);
 
@@ -55,7 +58,7 @@ namespace QAiku
                 msg.RecipientsIdCsv = _message.RecipientsIdCsv;
             }
             msg.RecipientsIdCsv = $"{_message.RecipientsIdCsv};{msg.SenderId}";
-            msg.SendDate = DateTime.Now.ToLocalTime() ;
+            msg.SendDate = DateTime.Now.ToLocalTime();
             msg.Category = 2;
             msg.Favorite = true;
             msg.State = 0;
@@ -69,6 +72,20 @@ namespace QAiku
                 Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
                 Answer.Text = "Your answer";
 
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress(User.UserId);
+                mail.To.Add(msg.SenderId);
+                mail.Subject = "From QAiku" + msg.Subject;
+                mail.Body = msg.Description;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(User.UserId, "GO!v1rt4h3p0");
+                SmtpServer.EnableSsl = true;
+                ServicePointManager.ServerCertificateValidationCallback = delegate (object senderr, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+                {
+                    return true;
+                };
+                SmtpServer.Send(mail);
                 await this.Navigation.PopAsync();
             }
             catch (Exception)

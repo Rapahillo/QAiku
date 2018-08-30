@@ -9,6 +9,9 @@ using QAiku.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Android.Widget;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace QAiku
 {
@@ -47,6 +50,21 @@ namespace QAiku
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                    mail.From = new MailAddress(User.UserId);
+                    mail.To.Add(msg.SenderId);
+                    mail.Subject = "❓Question From QAiku❓ :  " + msg.Subject;
+                    mail.Body = msg.Description;
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(User.UserId, "THIS DOES NOT WORK");
+                    SmtpServer.EnableSsl = true;
+                    ServicePointManager.ServerCertificateValidationCallback = delegate (object senderr, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+                    {
+                        return true;
+                    };
+                    SmtpServer.Send(mail);
+                    await this.Navigation.PopAsync();
                     Toast.MakeText(Android.App.Application.Context, "Question was sent", ToastLength.Long).Show();
                 }
 

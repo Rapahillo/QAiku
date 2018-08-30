@@ -21,8 +21,8 @@ namespace QAiku
         {
             userList.Add("sari@qaiku.com", "Salainen1!");
             userList.Add("mikko@qaiku.com", "Salainen1!");
-            userList.Add("jussi@qaiku.com", "Salainen1!");
-            userList.Add("ville@qaiku.com", "Salainen1!");
+            userList.Add("juupero@gmail.com", "Salainen1!");
+            userList.Add("ville.immonen2@gmail.com", "Salainen1!");
 
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
