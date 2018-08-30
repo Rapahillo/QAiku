@@ -24,7 +24,7 @@ namespace QAiku
         public AnswerPage (MsgModel message, UserModel user)
 		{
 
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
 
             Log.Info("QADEBUG", "AnswerPagen konstruktori käynnistyi");
             _message = message;
