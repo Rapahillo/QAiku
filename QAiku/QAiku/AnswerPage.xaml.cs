@@ -56,7 +56,10 @@ namespace QAiku
                 var content = JsonConvert.SerializeObject(msg);
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
-                Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
+                if (response.IsSuccessStatusCode)
+                {
+                    Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
+                }
                 Answer.Text = "Your answer";
 
                 await this.Navigation.PopAsync();
