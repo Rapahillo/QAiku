@@ -21,7 +21,12 @@ namespace QAiku
             User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
+
             BindingContext = new ListOfQuestionsPageModel(User);
+            QuestionList.IsVisible = false;
+            NewMessageButton.IsVisible = false;
+            Qaikuspinner.IsVisible = true;
+
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
@@ -30,7 +35,20 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
+            QuestionList.IsVisible = false;
+            NewMessageButton.IsVisible = false;
+            Qaikuspinner.IsVisible = true;
+
+            //while (BindingContext==null)
+            //{
+            //    await Qaikuspinner.RotateTo(360, 800, Easing.Linear);
+            //    await Qaikuspinner.RotateTo(0, 0); 
+            //}
             BindingContext = await ListOfQuestionsPageModel.Update(User);
+            Qaikuspinner.IsVisible = false;
+            QuestionList.IsVisible = true;
+            NewMessageButton.IsVisible = true;
+
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }

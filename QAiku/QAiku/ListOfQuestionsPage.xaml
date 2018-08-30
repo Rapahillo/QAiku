@@ -24,15 +24,14 @@
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
- 
-    <StackLayout>
-        <Image  VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                IsVisible="{Binding ToggleVisibility, Converter={StaticResource InverseBoolConverter}}">
-            
-        </Image>
+    <StackLayout >
 
-        <ListView IsVisible="{Binding ToggleVisibility}" x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
+        <Image x:Name="Qaikuspinner" VerticalOptions="CenterAndExpand"
+                Source="qaikulogo.png" />
+
+
+
+        <ListView x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -65,6 +64,7 @@
 
         <Button x:Name="NewMessageButton" Text="New message" Margin="0, 0, 20, 20" HorizontalOptions="End" BackgroundColor="#007a7a" Clicked="NewMessageButton_Clicked" />
 
-    </StackLayout>
     
+    
+    </StackLayout>
 </ContentPage>
