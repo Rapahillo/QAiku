@@ -5,6 +5,12 @@
              xmlns:local="clr-namespace:QAiku.SharedFunctionalities"
              x:Class="QAiku.ListOfQuestionsPage"
              BackgroundColor="#ebd9c8">
+    <ContentPage.Resources>
+        <local:StateColorCter x:Key="StateToColorConverter" />
+        <local:StateStringCter x:Key="StateToStringConverter" />
+
+
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems BackgroundColor="#de6600" >
         <ToolbarItem Text="Logo"
                      Icon="qaikulogo.png"
@@ -15,27 +21,16 @@
                      Priority="1"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Resources>
-        <local:StateColorCter x:Key="StateToColorConverter" />
-        <local:StateStringCter x:Key="StateToStringConverter" />
-
-
-    </ContentPage.Resources>
 
     <StackLayout>
 
-        <StackLayout >
 
-            <Entry Grid.Column="1" Placeholder="Search..." PlaceholderColor="#0c0000" TextColor="#0c0000" Margin="25, 25, 25, 5"/>
-
-        </StackLayout>
-
-        <ListView x:Name="QuestionList" RowHeight="150" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}" ItemTapped="QuestionList_ItemTapped">
+        <ListView x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="25">
-                            <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="5, -32, 10, -25" FontSize="20"/>
+                            <Label x:Name="SubjectLabel" TextColor="#003f5a" Text="{Binding Subject}" WidthRequest="100" Margin="4, 0, 35, -5" FontSize="20"/>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
@@ -43,16 +38,18 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <!--<Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>-->
-                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 22,-38, 50" FontSize="10" Grid.Row="0"/>
-                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="-160, -2, 0, 0" FontSize="14" Grid.Row="0"/>
-                                <Label x:Name="State" TextColor="#0c0000" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="0"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>-->
+                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="50" Margin="6, 20,-38, 40" FontSize="10" Grid.Row="0"/>
+                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="50" Margin="5, -98, 0, 0" FontSize="14" Grid.Row="1"/>
+                                <Label x:Name="State" TextColor="#0c0000" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin=" 260, -95, -5, 70" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Grid.Row="2"/>
+                                
+                                <!--<Label x:Name="State" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="End" TextColor="#0c0000" WidthRequest="50" Margin="5, -80, 5, 50" Text="State" BackgroundColor="Red" Grid.Row="2"/>-->
 
                             </Grid>
-                            <!--<Button x:Name="ViewThreadButton" Text="View" FontSize="10" BackgroundColor="#007a7a" HeightRequest="32" WidthRequest="20" Margin="5, -72, 0, 0" CommandParameter="{Binding}"  BindingContext="{Binding}" Clicked="ViewThreadButton_Clicked"/>-->
+                           
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

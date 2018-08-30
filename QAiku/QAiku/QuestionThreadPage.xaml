@@ -10,7 +10,16 @@
         <local:StateStringCter x:Key="StateToStringConverter" />
 
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems BackgroundColor="#de6600" >
+        <ToolbarItem Text="Logo"
+                     Icon="qaikulogo.png"
+                     Priority="0"/>
 
+        <ToolbarItem Text="Settings"
+                     Icon="settings_icon.png"
+                     Priority="1"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Padding="25">
 
 
@@ -18,7 +27,9 @@
 
         <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15, -50, 0, 0" FontSize="16"/>
         <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
-        <Button x:Name="StateButton" TextColor="#0c0000"  BindingContext="{Binding Question}" Text="{Binding State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding State, Converter={StaticResource StateToColorConverter}}" Clicked="StateButton_Clicked"/>
+        <Button x:Name="StateButton" TextColor="#0c0000"  IsEnabled="{Binding UserIsSender}" BindingContext="{Binding}" Text="{Binding Question.State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding Question.State, Converter={StaticResource StateToColorConverter}}" Clicked="StateButton_Clicked">
+          
+        </Button>
 
 
         <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}">

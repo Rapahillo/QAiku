@@ -18,12 +18,10 @@ namespace QAiku
         UserModel User;
         public ListOfQuestionsPage(UserModel user)
         {
-
             User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
-            
-            BindingContext = new ListOfQuestionsPageModel();
+            BindingContext = new ListOfQuestionsPageModel(User);
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
@@ -32,7 +30,7 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
-            BindingContext = await ListOfQuestionsPageModel.Update();
+            BindingContext = await ListOfQuestionsPageModel.Update(User);
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }
@@ -45,7 +43,7 @@ namespace QAiku
             var item = (sender as Button).CommandParameter as MsgModel;
 
             Log.Info("QADEBUG", $"{item.ToString()}");
-            var nextPage = new QuestionThreadPage(item);
+            var nextPage = new QuestionThreadPage(item, User);
             Navigation.PushAsync(nextPage);
 
 
@@ -69,8 +67,9 @@ namespace QAiku
         private async void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             MsgModel msgModel = (MsgModel)e.Item;
-            var nextPage = new QuestionThreadPage(msgModel);
+            var nextPage = new QuestionThreadPage(msgModel, User);
             await Navigation.PushAsync(nextPage);
         }
+   
     }
 }

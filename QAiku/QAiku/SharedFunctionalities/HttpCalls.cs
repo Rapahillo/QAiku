@@ -41,7 +41,7 @@ namespace QAiku.SharedFunctionalities
 
         public async Task<List<MsgModel>> GetSentMessagesAsync(string id)
         {
-            string resturl = baseurl+"GetBySenderId";
+            string resturl = baseurl+ $"GetBySenderId?id={id}";
             Log.Info("QADEBUG", "GetSentMessages käynnistyi");
             var response = await httpClient.GetAsync(resturl);
             List<MsgModel> Messages = null;
@@ -57,7 +57,7 @@ namespace QAiku.SharedFunctionalities
         }
         public async Task<List<MsgModel>> GetReceivedMessagesAsync(string id)
         {
-            string resturl = baseurl + "GetByRecipientId";
+            string resturl = baseurl + $"GetByRecipientId?id={id}";
             var response = await httpClient.GetAsync(resturl);
             List<MsgModel> Messages = null;
             if (response.IsSuccessStatusCode)
