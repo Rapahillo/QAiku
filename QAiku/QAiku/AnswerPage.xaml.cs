@@ -26,13 +26,11 @@ namespace QAiku
 
             //NavigationPage.SetHasNavigationBar(this, false);
 
-            Log.Info("QADEBUG", "AnswerPagen konstruktori käynnistyi");
             _message = message;
             User = user;
             InitializeComponent();
 
             BindingContext = new QuestionThreadPageModel(message, user);
-            Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
         }
 
         private async void SubmitAnswerButton_Clicked(object sender, EventArgs e)
@@ -59,18 +57,13 @@ namespace QAiku
                 var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
                 Console.WriteLine(response.Content.ReadAsStringAsync());
                 Toast.MakeText(Android.App.Application.Context, "Your answer was sent!", ToastLength.Long).Show();
-                //await DisplayAlert("Message sent!", $"Message: \"{msg.Subject}\"{Environment.NewLine}sent to {msg.RecipientsIdCsv}{Environment.NewLine} at {msg.SendDate}", "Ok!");
-                //Subject.Text = "Subject";
                 Answer.Text = "Your answer";
 
-                var nextPage = new NavigationPage(new QuestionThreadPage(_message, User));
-
-                await this.Navigation.PushAsync(nextPage);
+                await this.Navigation.PopAsync();
             }
             catch (Exception)
             {
                 Toast.MakeText(Android.App.Application.Context, "Something went wrond. Please, try sending your answer again.", ToastLength.Long).Show();
-                //await DisplayAlert("Oops!", "Something went wrong", "Ok, I guess..");
             }
         }
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -84,6 +77,12 @@ namespace QAiku
             MsgModel msgModel = (MsgModel)e.Item;
             var nextPage = new ShowSingleAnswer(msgModel, User);
             await Navigation.PushAsync(nextPage);
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+            Navigation.PushModalAsync(nextPage);
         }
     }
 }

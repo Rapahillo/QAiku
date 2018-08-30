@@ -9,6 +9,7 @@ using QAiku.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using QAiku.SharedFunctionalities;
+using Android.Widget;
 
 namespace QAiku
 {
@@ -31,37 +32,22 @@ namespace QAiku
             //NavigationPage.SetHasNavigationBar(this, false);
             User = user;
             _message = message;
-            Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
             InitializeComponent ();
             BindingContext = new QuestionThreadPageModel(message, user);
-            Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
-
-
-
-
-
         }
         protected async override void OnAppearing()
         {
-            Log.Info("QADEBUG", "Question Thread Pagen OnAppearing käynnistyi!");
             BindingContext = await QuestionThreadPageModel.Update(_message, User);
-            Log.Info("QADEBUG", "Question Thread Pagen OnAppearing valmistui!");
-
         }
 
         private void SendYourAnswer_Clicked(object sender, EventArgs e)
         {
-            Log.Info("QADEBUG", "SendYourAnswer clicked!");
-
-            Log.Info("QADEBUG", $"{_message.ToString()}");
             var nextPage = new AnswerPage(_message, User);
             Navigation.PushAsync(nextPage);
-
         }
 
         private async void StateButton_Clicked(object sender, EventArgs e)
         {
-            Log.Info("qadebug", $"Statebutton clicked, {_message.State.ToString()}");
             if (_message.State == 1)
             {
                 _message.State = 3;
@@ -71,15 +57,10 @@ namespace QAiku
             _message.State--;
 
             }
-            Log.Info("qadebug", $"Statebutton clicked, {_message.State.ToString()} after click");
             HttpCalls call = new HttpCalls();
             MsgModel updated = await call.PutStateAsync(_message.id, _message);
-            Log.Info("qadebug", $"Statebutton clicked, {updated.State.ToString()} after click");
             _message = updated;
             BindingContext = await QuestionThreadPageModel.Update(_message, User);
-
-
-
         }
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
@@ -89,11 +70,23 @@ namespace QAiku
 
         private async void AnswerList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-           
+            try
+            {
                 MsgModel msgModel = (MsgModel)e.Item;
                 var nextPage = new ShowSingleAnswer(msgModel, User);
                 await Navigation.PushAsync(nextPage);
+            }
+            catch (Exception)
+            {
+                Toast.MakeText(Android.App.Application.Context, "Uh oh... An error occured", ToastLength.Long).Show();
+            }
             
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+            Navigation.PushAsync(nextPage);
         }
     }
 }

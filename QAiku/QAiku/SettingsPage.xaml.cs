@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAiku.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,10 @@ namespace QAiku
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SettingsPage : ContentPage
 	{
-		public SettingsPage ()
+        UserModel User;
+		public SettingsPage (UserModel user)
 		{
+            User = user;
 			InitializeComponent ();
 		}
 
@@ -45,6 +48,12 @@ namespace QAiku
         private void TermsOfServiceButton_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var nextPage = new NavigationPage(new ListOfQuestionsPage(User));
+            Navigation.PushModalAsync(nextPage);
         }
     }
 }
