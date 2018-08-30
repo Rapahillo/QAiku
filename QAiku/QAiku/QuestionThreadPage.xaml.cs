@@ -17,6 +17,15 @@ namespace QAiku
     {
         UserModel User;
         private MsgModel _message;
+
+        public QuestionThreadPage()
+        {
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
+            InitializeComponent();
+            BindingContext = new QuestionThreadPageModel(User);
+        }
+
         public QuestionThreadPage (MsgModel message, UserModel user)
         {
             //NavigationPage.SetHasNavigationBar(this, false);

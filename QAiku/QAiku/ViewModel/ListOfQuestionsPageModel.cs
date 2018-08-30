@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace QAiku.ViewModel
 {
-    class ListOfQuestionsPageModel: INotifyPropertyChanged
+    class QuestionThreadPageModel: INotifyPropertyChanged
     {
         private ObservableCollection<MsgModel> _messages;
         public ObservableCollection<MsgModel> Messages
@@ -69,7 +69,7 @@ namespace QAiku.ViewModel
         }
         //public MsgModel MsgModel { get; set; }
 
-        public ListOfQuestionsPageModel(UserModel user)
+        public QuestionThreadPageModel(UserModel user)
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
             _user = user;
@@ -82,10 +82,10 @@ namespace QAiku.ViewModel
 
  
 
-        public static async Task<ListOfQuestionsPageModel> Update(UserModel user)
+        public static async Task<QuestionThreadPageModel> Update(UserModel user)
         {
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin update käynnistyi");
-            var listOfQuestionsPageModel = new ListOfQuestionsPageModel(user);
+            var listOfQuestionsPageModel = new QuestionThreadPageModel(user);
             await listOfQuestionsPageModel.Initialize();
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin update valmistui");
             return listOfQuestionsPageModel;

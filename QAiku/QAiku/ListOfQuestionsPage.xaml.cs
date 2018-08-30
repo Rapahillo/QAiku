@@ -16,12 +16,21 @@ namespace QAiku
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
-        public ListOfQuestionsPage(/*UserModel user*/)
+
+        public ListOfQuestionsPage()
         {
-            //User = user;
+            User = new UserModel();
+            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
+            InitializeComponent();
+            BindingContext = new QuestionThreadPageModel(User);
+        }
+
+        public ListOfQuestionsPage(UserModel user)
+        {
+            User = user;
             Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
-            BindingContext = new ListOfQuestionsPageModel(User);
+            BindingContext = new QuestionThreadPageModel(User);
             //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
@@ -30,7 +39,7 @@ namespace QAiku
         protected async override void OnAppearing()
         {
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
-            BindingContext = await ListOfQuestionsPageModel.Update(User);
+            BindingContext = await QuestionThreadPageModel.Update(User);
             Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
 
         }
