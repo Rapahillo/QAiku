@@ -32,7 +32,7 @@
         </Button>
 
 
-        <ListView x:Name="QuestionList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}">
+        <ListView x:Name="AnswerList" RowHeight="100" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTapped="AnswerList_ItemTapped">
             <ListView.ItemTemplate>
                 
             <DataTemplate>

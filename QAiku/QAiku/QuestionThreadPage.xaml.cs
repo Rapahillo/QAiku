@@ -21,9 +21,9 @@ namespace QAiku
         {
             //NavigationPage.SetHasNavigationBar(this, false);
             User = user;
+            _message = message;
             Log.Info("QADEBUG", "QuestionThreadPagen konstruktori käynnistyi");
             InitializeComponent ();
-            _message = message;
             BindingContext = new QuestionThreadPageModel(message, user);
             Log.Info("QADEBUG", $"QuestionThreadPagen konstruktori valmistui");
 
@@ -78,5 +78,13 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
+        private async void AnswerList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+           
+                MsgModel msgModel = (MsgModel)e.Item;
+                var nextPage = new ShowSingleAnswer(msgModel, User);
+                await Navigation.PushAsync(nextPage);
+            
+        }
     }
 }

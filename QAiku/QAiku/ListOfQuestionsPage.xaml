@@ -8,6 +8,8 @@
     <ContentPage.Resources>
         <local:StateColorCter x:Key="StateToColorConverter" />
         <local:StateStringCter x:Key="StateToStringConverter" />
+        <local:InverseBoolCter x:Key="InverseBoolConverter" />
+
 
 
     </ContentPage.Resources>
@@ -22,10 +24,15 @@
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
+ 
     <StackLayout>
+        <Image  VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding ToggleVisibility, Converter={StaticResource InverseBoolConverter}}">
+            
+        </Image>
 
-
-        <ListView x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
+        <ListView IsVisible="{Binding ToggleVisibility}" x:Name="QuestionList" RowHeight="120" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

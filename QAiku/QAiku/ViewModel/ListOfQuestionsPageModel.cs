@@ -43,7 +43,19 @@ namespace QAiku.ViewModel
                 _user = value;
             }
         }
-        public ICommand ViewThreadCommand { get; private set; }
+        private bool _toggleVisibility = true;
+        public bool ToggleVisibility { get => _toggleVisibility; set
+            {
+                if (_toggleVisibility == value)
+                {
+                    return;
+                }
+                _toggleVisibility = value;
+                OnPropertyChanged("ToggleVisibility");
+
+
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -64,6 +76,7 @@ namespace QAiku.ViewModel
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
             //ViewThreadCommand = new Command(ViewThreadButton_Command);
             Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
+            _toggleVisibility = true;
 
         }
 
@@ -88,35 +101,38 @@ namespace QAiku.ViewModel
             List<MsgModel> sent = await call.GetSentMessagesAsync(User.UserId); 
             List<MsgModel> received = await call.GetReceivedMessagesAsync(User.UserId);
             //var questions = msgs.Where(m => m.Category == 1);
+            List<string> Threadids = new List<string>() ;
             foreach (var item in sent)
             {
-                if (item.RecipientsIdCsv.Contains(User.UserId))
+                if (!Threadids.Contains(item.ThreadId))
                 {
-                    continue;
-                }
-                if (item.Category==1)
-                {
-                msgs.Add(item);
+                    Threadids.Add(item.ThreadId);
+                    if (item.Category==1)
+                         {
+                             msgs.Add(item);
 
+                         }
                 }
+
+                continue;
                 
                
             }
             foreach (var item in received)
             {
-                if (item.SenderId == User.UserId)
+                if (!Threadids.Contains(item.ThreadId))
                 {
-                    continue;
-                }
-                List<MsgModel> thread = await call.GetThreadAsync(item.ThreadId);
+                    Threadids.Add(item.ThreadId);
+                    List<MsgModel> thread = await call.GetThreadAsync(item.ThreadId);
                 MsgModel originalquestion = thread[0];
                 msgs.Add(originalquestion);
+                }
 
 
             }
-            IEnumerable<MsgModel> distinct = msgs.Distinct(new MessageEqualityComparer());
-            msgs = distinct.ToList();
-            msgs = msgs.OrderByDescending(m => m.SendDate).ToList();
+            
+            msgs = msgs.OrderByDescending(m => m.State).ToList();
+
             
             Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
 
