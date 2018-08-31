@@ -21,17 +21,14 @@
                      Priority="1"
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    <StackLayout Padding="25">
+    <StackLayout>
 
+        <Label  BindingContext="{Binding Question}"  Text="{Binding Subject}" TextColor="#0c0000" WidthRequest="100" HeightRequest="130" Margin="25, 25, 20, -25" FontSize="22"/>
 
-        <Label  BindingContext="{Binding Question}"  Text="{Binding Subject}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15" FontSize="20"/>
-
-        <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" HeightRequest="60" Margin="15, -50, 0, 0" FontSize="16"/>
-        <Label TextColor="#0c0000" WidthRequest="100" Margin="15, -7" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
-        <Button x:Name="StateButton" TextColor="#0c0000"  IsEnabled="{Binding UserIsSender}" BindingContext="{Binding}" Text="{Binding Question.State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding Question.State, Converter={StaticResource StateToColorConverter}}" Clicked="StateButton_Clicked">
-          
+        <Label BindingContext="{Binding Question}" Text="{Binding SenderId}" TextColor="#0c0000" WidthRequest="100" Margin="25, 25, 20, -25" FontSize="16"/>
+        <Label TextColor="#0c0000" WidthRequest="100" Margin="25, 20, 20, -25" FontSize="16" HeightRequest="60" BindingContext="{Binding Question}"  Text="{Binding Description}"/>
+        <Button x:Name="StateButton" Margin="35, 45, 35, -25" TextColor="#0c0000"  IsEnabled="{Binding UserIsSender}" BindingContext="{Binding}" Text="{Binding Question.State, Converter={StaticResource StateToStringConverter}}" BackgroundColor="{Binding Question.State, Converter={StaticResource StateToColorConverter}}" Clicked="StateButton_Clicked">
         </Button>
-
 
         <ListView x:Name="AnswerList" RowHeight="150" ItemsSource="{x:Binding}" BindingContext="{Binding AnswerList}" ItemTapped="AnswerList_ItemTapped">
             <ListView.ItemTemplate>
@@ -47,9 +44,9 @@
                                 <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                             
-                            <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" Margin="15, -5, 0, 0" FontSize="16" Grid.Row="1"/>
-                            <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" Margin="15, 0, 0, 0" FontSize="12" Grid.Row="2"/>
-                            <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" Margin="15, 0,-60, 50" FontSize="10" Grid.Row="3"/>
+                            <Label x:Name="DescriptionLabel" TextColor="#0c0000" Text="{Binding Description}" WidthRequest="100" Margin="25, 35, 20, -25" FontSize="16" Grid.Row="1"/>
+                                <Label x:Name="SenderIdLabel" TextColor="#0c0000" Text="{Binding SenderId}" WidthRequest="100" Margin="25, -8, 20, -25" FontSize="12" Grid.Row="2"/>
+                                <Label x:Name="SendDateLabel" TextColor="#0c0000" Text="{Binding SendDate}" WidthRequest="100" Margin="25, 20,-60, -25" FontSize="10" Grid.Row="3"/>
                         </Grid>
                                 
 
@@ -60,7 +57,7 @@
         </ListView>
 
 
-        <Button x:Name="SendYourAnswer" Text="Answer" Margin="0, 0, -10, -5" HorizontalOptions="End" TextColor="White" BackgroundColor="#003f5a" Clicked="SendYourAnswer_Clicked" />
+        <Button x:Name="SendYourAnswer" Text="Answer" Margin="50, 20, 25, 25" HorizontalOptions="End" TextColor="White" BackgroundColor="#003f5a" Clicked="SendYourAnswer_Clicked" />
         
     </StackLayout>
     

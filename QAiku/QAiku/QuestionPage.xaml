@@ -17,12 +17,10 @@
                      Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        
+
         <StackLayout
             Spacing="20"
             Padding="20">
-            <!--VerticalOptions="Center" >-->
-            <!--<Button x:Name="Back" Text="Back" HorizontalOptions="Start"/>-->
 
             <Editor x:Name="Question" Text="Question" TextColor="#0c0000" MaxLength="60" AutoSize="TextChanges" BindingContext="{Binding Msg}" />
             <Editor x:Name="Description" Text="Description" AutoSize="TextChanges" TextColor="#0c0000" BindingContext="{Binding Msg}" />

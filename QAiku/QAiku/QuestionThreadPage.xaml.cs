@@ -23,7 +23,7 @@ namespace QAiku
         {
             User = new UserModel();
             User.UserId = "kovakoodattuLahettaja@questionpage.fi";
-            _message = new MsgModel { Subject = "something", SendDate = DateTime.Now, SenderId = User.UserId};
+            _message = new MsgModel { Subject = "something", SendDate = DateTime.Now, SenderId = User.UserId, Description = "GHJGKMGL KLKMKKM KKKKK"};
             InitializeComponent();
             BindingContext = new QuestionThreadPageModel(_message, User);
         }
