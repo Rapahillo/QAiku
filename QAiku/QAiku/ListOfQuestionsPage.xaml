@@ -8,7 +8,6 @@
     <ContentPage.Resources>
         <local:StateColorCter x:Key="StateToColorConverter" />
         <local:StateStringCter x:Key="StateToStringConverter" />
-        <local:InverseBoolCter x:Key="InverseBoolConverter" />
 
 
 
