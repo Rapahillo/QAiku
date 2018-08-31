@@ -13,6 +13,7 @@ using Android.Widget;
 
 namespace QAiku
 {
+    //BindingContext: QuestionThreadPageModel
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuestionThreadPage : ContentPage
     {
@@ -47,6 +48,7 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
+        //Toggles the state of the message
         private async void StateButton_Clicked(object sender, EventArgs e)
         {
             if (_message.State == 1)
@@ -69,6 +71,7 @@ namespace QAiku
             Navigation.PushAsync(nextPage);
         }
 
+        //Shows the details of an individual answer
         private async void AnswerList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             try

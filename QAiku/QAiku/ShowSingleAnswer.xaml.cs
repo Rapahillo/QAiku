@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 
 namespace QAiku
 {
+    //BindingContext: ShowSingleAnswerModel
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ShowSingleAnswer : ContentPage
 	{

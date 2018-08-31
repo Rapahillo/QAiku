@@ -9,6 +9,7 @@ namespace QAiku.SharedFunctionalities
     class StateColorCter:IValueConverter
 
     {
+        //Returns the state of the message as a color
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             State state = (State)((int)value);

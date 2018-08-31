@@ -43,19 +43,7 @@ namespace QAiku.ViewModel
                 _user = value;
             }
         }
-        private bool _toggleVisibility = true;
-        public bool IsListVisible { get => _toggleVisibility; set
-            {
-                if (_toggleVisibility == value)
-                {
-                    return;
-                }
-                _toggleVisibility = value;
-                OnPropertyChanged(nameof(IsListVisible));
-
-
-            }
-        }
+ 
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -67,33 +55,27 @@ namespace QAiku.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
-        //public MsgModel MsgModel { get; set; }
 
         public ListOfQuestionsPageModel(UserModel user)
         {
-            Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori käynnistyi");
             _user = user;
     
             Messages = new ObservableCollection<MsgModel> { new MsgModel { Subject = "Fetching data...", Description = "Just a moment", SendDate = DateTime.Now, SenderId="Developer team" } };
-            //ViewThreadCommand = new Command(ViewThreadButton_Command);
-            Log.Info("QADEBUG", "ListOfQuestionsPageModelin konstruktori valmistui");
    
 
         }
 
  
-
+        //Updates the data on the list page async
         public static async Task<ListOfQuestionsPageModel> Update(UserModel user)
         {
-            Log.Info("QADEBUG", "ListOfQuestionsPageModelin update käynnistyi");
             var listOfQuestionsPageModel = new ListOfQuestionsPageModel(user);
             await listOfQuestionsPageModel.Initialize();
-            Log.Info("QADEBUG", "ListOfQuestionsPageModelin update valmistui");
             return listOfQuestionsPageModel;
 
 
         }
-
+        //Fetches the user's sent and received messages async
         private async Task Initialize()
         {
             await Task.Delay(1000);
@@ -101,7 +83,6 @@ namespace QAiku.ViewModel
             List<MsgModel> msgs = new List<MsgModel>() ;
             List<MsgModel> sent = await call.GetSentMessagesAsync(User.UserId); 
             List<MsgModel> received = await call.GetReceivedMessagesAsync(User.UserId);
-            //var questions = msgs.Where(m => m.Category == 1);
             List<string> Threadids = new List<string>() ;
             foreach (var item in sent)
             {
@@ -131,36 +112,12 @@ namespace QAiku.ViewModel
 
 
             }
-            
+         
             msgs = msgs.OrderBy(m => m.State).ToList();
-
-            
-            Log.Info("QADEBUG", $"ListOfQuestionsin Initialize-metodista {msgs.Count} viestiä");
-
             _messages = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
 
 
         }
     }
-    class MessageEqualityComparer : IEqualityComparer<MsgModel>
-    {
-        public bool Equals(MsgModel x, MsgModel y)
-        {
-            if ((object)x == null && (object)y == null)
-            {
-                return true;
-            }
-            if ((object)x == null || (object)y == null)
-            {
-                return false;
-            }
-            return x.id == y.id && x.Subject == y.Subject;
-        }
 
-        public int GetHashCode(MsgModel obj)
-        {
-            return obj.GetHashCode();
-        }
-
-    }
 }

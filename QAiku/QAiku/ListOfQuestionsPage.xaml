@@ -8,7 +8,6 @@
     <ContentPage.Resources>
         <local:StateColorCter x:Key="StateToColorConverter" />
         <local:StateStringCter x:Key="StateToStringConverter" />
-        <local:InverseBoolCter x:Key="InverseBoolConverter" />
 
 
 
@@ -27,10 +26,12 @@
  
     <StackLayout>
         <Image x:Name="Qaikulogo" VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
+                
                 Source="qaikulogo.png">
                 
         </Image>
+        <Label x:Name="Loading" Text="is loading messages..." TextColor="#003f5a" FontSize="20" VerticalOptions="StartAndExpand" HorizontalOptions="Center"
+                />
 
         <ListView x:Name="QuestionList" RowHeight="180" ItemsSource="{x:Binding}" BindingContext="{Binding Messages}"  ItemTapped="QuestionList_ItemTapped">
             <ListView.ItemTemplate>

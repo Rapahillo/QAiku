@@ -23,7 +23,6 @@ namespace QAiku.SharedFunctionalities
         public async Task<List<MsgModel>> GetAllMessagesAsync()
         {
         string RestUrl = baseurl+"GetAllMessages";
-            Log.Info("QADEBUG", "GetAllMessages käynnistyi");
             //var response = await httpClient.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json"));
 
             //var uri = new Uri(string.Format(RestUrl, "GetAllMessages"));
@@ -31,8 +30,6 @@ namespace QAiku.SharedFunctionalities
             var response = await httpClient.GetAsync(RestUrl);
             if (response.IsSuccessStatusCode)
             {
-                Log.Info("QADEBUG", "GetAllMessages sai matskut mukaan!");
-
                 var content = await response.Content.ReadAsStringAsync();
                 Messages = JsonConvert.DeserializeObject<List<MsgModel>>(content);
             }
@@ -42,14 +39,12 @@ namespace QAiku.SharedFunctionalities
         public async Task<List<MsgModel>> GetSentMessagesAsync(string id)
         {
             string resturl = baseurl+ $"GetBySenderId?id={id}";
-            Log.Info("QADEBUG", "GetSentMessages käynnistyi");
             var response = await httpClient.GetAsync(resturl);
             List<MsgModel> Messages = null;
 
 
             if (response.IsSuccessStatusCode)
             {
-                Log.Info("QADEBUG", "GetSentMessages sai matskut mukaan!");
                 var content = await response.Content.ReadAsStringAsync();
                 Messages = JsonConvert.DeserializeObject<List<MsgModel>>(content);
             }
