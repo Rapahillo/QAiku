@@ -17,19 +17,7 @@ namespace QAiku
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
-       
-        public ListOfQuestionsPage()
-        {
-            User = new UserModel();
-            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
-            InitializeComponent();
-            Qaikulogo.IsVisible = true;
-            Loading.IsVisible = true;
-
-            QuestionList.IsVisible = false;
-            NewMessageButton.IsVisible = false;
-            BindingContext = new ListOfQuestionsPageModel(User);
-        }
+    
         //Setting the user parameter that determines which messages get retrieved
         //Loading page logo visible instead of question list, because the list has no data yet
         public ListOfQuestionsPage(UserModel user)

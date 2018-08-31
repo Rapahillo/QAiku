@@ -20,14 +20,7 @@ namespace QAiku
         UserModel User;
         private MsgModel _message;
 
-        public QuestionThreadPage()
-        {
-            User = new UserModel();
-            User.UserId = "kovakoodattuLahettaja@questionpage.fi";
-            _message = new MsgModel { Subject = "something", SendDate = DateTime.Now, SenderId = User.UserId, Description = "GHJGKMGL KLKMKKM KKKKK"};
-            InitializeComponent();
-            BindingContext = new QuestionThreadPageModel(_message, User);
-        }
+     
 
         public QuestionThreadPage (MsgModel message, UserModel user)
         {
