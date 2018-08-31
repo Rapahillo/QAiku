@@ -14,6 +14,7 @@ using Android.Widget;
 
 namespace QAiku
 {
+    //BindingContext: QuestionThreadPageModel
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AnswerPage : ContentPage
 	{
@@ -31,6 +32,7 @@ namespace QAiku
             BindingContext = new QuestionThreadPageModel(_message, User);
         }
         
+        //Sets the question to be answered and the user who is answering the question
         public AnswerPage (MsgModel message, UserModel user)
 		{
 
@@ -43,6 +45,7 @@ namespace QAiku
             BindingContext = new QuestionThreadPageModel(message, user);
         }
 
+        //Sends the answer to the database
         private async void SubmitAnswerButton_Clicked(object sender, EventArgs e)
         {
             MsgModel msg = new MsgModel();
@@ -81,7 +84,7 @@ namespace QAiku
             var nextPage = new UserProfilePage();
             Navigation.PushAsync(nextPage);
         }
-
+        //Views the details of a single answer on a separate page
         private async void AnswerList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             MsgModel msgModel = (MsgModel)e.Item;

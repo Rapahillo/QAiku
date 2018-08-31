@@ -72,11 +72,9 @@ namespace QAiku.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
-        //public MsgModel MsgModel { get; set; }
 
         public QuestionThreadPageModel(MsgModel message, UserModel user)
         {
-            Log.Info("QADEBUG", "QuestionThreadPageModelin konstruktori käynnistyi");
             _question = message;
             _user = user;
             if (_question.SenderId == _user.UserId)
@@ -97,14 +95,12 @@ namespace QAiku.ViewModel
 
         }
 
-
+        //Fetching the updated list of answers
         public static async Task<QuestionThreadPageModel> Update(MsgModel message, UserModel user)
         {
-            Log.Info("QADEBUG", "QuestionThreadPageModelin update käynnistyi");
             var questionThreadPageModel = new QuestionThreadPageModel(message, user);
             string threadid = message.ThreadId;
             await questionThreadPageModel.Initialize(threadid);
-            Log.Info("QADEBUG", "QuestionThreadPageModelin update valmistui");
             return questionThreadPageModel;
 
 
@@ -112,15 +108,12 @@ namespace QAiku.ViewModel
 
         private async Task Initialize(string threadid)
         {
-            Log.Info("QADEBUG", "QuestionThreadPageModelin Initialize-metodi käynnistyi");
             await Task.Delay(1000);
             HttpCalls call = new HttpCalls();
             List<MsgModel> msgs = await call.GetThreadAsync(threadid);
             _question = msgs[0];
-            Log.Info("qadebug", $"{_question.ToString()}");
             msgs.RemoveAt(0);
             _answerlist = QaikuExtensions.ToObservableCollection<MsgModel>(msgs);
-            Log.Info("QADEBUG", $"GetThreadInitialize valmistui!");
 
 
         }

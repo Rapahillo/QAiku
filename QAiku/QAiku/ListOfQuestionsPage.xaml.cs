@@ -12,55 +12,64 @@ using System.Collections.ObjectModel;
 
 namespace QAiku
 {
+    //Binding Context: ListOfQuestionsPageModel
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListOfQuestionsPage : ContentPage
     {
         UserModel User;
-
+       
         public ListOfQuestionsPage()
         {
             User = new UserModel();
             User.UserId = "kovakoodattuLahettaja@questionpage.fi";
             InitializeComponent();
+            Qaikulogo.IsVisible = true;
+            Loading.IsVisible = true;
+
+            QuestionList.IsVisible = false;
+            NewMessageButton.IsVisible = false;
             BindingContext = new ListOfQuestionsPageModel(User);
         }
-
+        //Setting the user parameter that determines which messages get retrieved
+        //Loading page logo visible instead of question list, because the list has no data yet
         public ListOfQuestionsPage(UserModel user)
         {
             User = user;
-            Log.Info("QADEBUG", "ListOfQuestionsPagen konstruktori käynnistyi");
             InitializeComponent();
             Qaikulogo.IsVisible = true;
+            Loading.IsVisible = true;
+
             QuestionList.IsVisible = false;
             NewMessageButton.IsVisible = false;
             BindingContext = new ListOfQuestionsPageModel(User);
-            //ViewThreadButton.Clicked += ViewThreadButton_Clicked
 
 
-            Log.Info("QADEBUG", $"ListOfQuestionsPagen konstruktori valmistui");
         }
+        //Fetching data async, and toggling the logo for the question list once data is retrieved
+        /// <summary>
+        /// Updates the data for the List of Questions page
+        /// </summary>
         protected async override void OnAppearing()
         {
             Qaikulogo.IsVisible = true;
+            Loading.IsVisible = true;
+
             QuestionList.IsVisible = false;
             NewMessageButton.IsVisible = false;
-            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing käynnistyi!");
 
             BindingContext = await ListOfQuestionsPageModel.Update(User);
-            Log.Info("QADEBUG", "ListOfQuestionsPagen OnAppearing valmistui!");
+            Loading.IsVisible = false;
+
             Qaikulogo.IsVisible = false;
             QuestionList.IsVisible = true;
             NewMessageButton.IsVisible = true;
         }
    
 
-
+        
         private void ViewThreadButton_Clicked(object sender, EventArgs e)
         {
-            Log.Info("QADEBUG", "Viewthreadbutton clicked!");
             var item = (sender as Button).CommandParameter as MsgModel;
-
-            Log.Info("QADEBUG", $"{item.ToString()}");
             var nextPage = new QuestionThreadPage(item, User);
             Navigation.PushAsync(nextPage);
 
@@ -81,7 +90,7 @@ namespace QAiku
             var nextPage = new UserProfilePage();
             Navigation.PushAsync(nextPage);
         }
-
+        //Shows the details of an individual question thread
         private async void QuestionList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             MsgModel msgModel = (MsgModel)e.Item;
